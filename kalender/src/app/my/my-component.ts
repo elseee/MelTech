@@ -15,19 +15,59 @@ export class MyComponent{
     	
     }
 
-    afspraakToevoegen(startTijd) {
+    afspraakOphalen(startTijd) {
     	this.afsprakenService.addAfspraak(startTijd).subscribe((startTijd) => { console.log(startTijd) })
     }
 
+
     afsprakenInladen() {
-    	this.afsprakenService.getAfspraak().subscribe();
+    	this.afsprakenService.getAfspraak().subscribe(
+    			afspr => {
+    					
+    					let afsprTijd = [];
+    					
+    					for (let i = 0; i < afspr.length; i++) { 
+						    afsprTijd.push(afspr[i].startTijd);
+						}
+
+						this.afsprakenToevoegen(afsprTijd);
+						
+					}
+    		);
+    }	
+
+
+    existingEvents = [];
+
+    afsprakenToevoegen(afsprTijd) {
+    	for (let i = 0; i < afsprTijd.length; i++) {
+    		var start = moment(afsprTijd[i]);
+    		var end = moment(afsprTijd[i]).add(30, 'minutes');
+
+    		console.log('start is: ' + afsprTijd[i]);
+    		console.log('end is: ' + end);
+
+    		let event = {
+    			title: 'afspraak mogelijkheid',
+    			end: end,
+    			start: start,
+    			allDay: false
+    		}
+
+    		this.existingEvents.push(event);
+    	}
+
+    	console.log(this.existingEvents);
     }
     
     calendarOptions:Object 
 
-
     ngOnInit() : void {
         let self = this;
+
+        console.log(self.existingEvents);
+
+        this.afsprakenInladen()
 
         this.calendarOptions = {
 			defaultView: 'agendaWeek',
@@ -36,6 +76,7 @@ export class MyComponent{
 			maxTime: "19:00:00",
 			aspectRatio: 1.5,
 			selectable: true,
+			events: self.existingEvents,
 			select: function(startDate, endDate) {
 				var duration = moment.duration(endDate.diff(startDate)).asHours();
 				var slots = duration / 0.5;
@@ -48,13 +89,13 @@ export class MyComponent{
 						start: startDate,
 						end: end,
 						allDay: false,
-						customer: 'Lisa',
-						customerTel: '0612345678',
-						customerEmail: 'test@gmail.com',
-						customerProblem: 'rede a'
+						customer: '',
+						customerTel: '',
+						customerEmail: '',
+						customerProblem: ''
 			        });
 
-			       self.afspraakToevoegen(startDate.format());	 
+			       self.afspraakOphalen(startDate.format());	 
 
 			       startDate = moment(end);
 				}
@@ -67,5 +108,6 @@ export class MyComponent{
 	        }
     	}
      }
+
     
 }

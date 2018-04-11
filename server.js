@@ -40,7 +40,7 @@ app.post('/add', function(req, res) {
   connection.end();
 });
 
-app.post('/get', function(req, res) {
+app.get('/get', function(req, res) {
   console.log('in /get');
   
   var connection = getConnection();
@@ -48,7 +48,7 @@ app.post('/get', function(req, res) {
 
   connection.query('SELECT * from afspraken', function(err, rows, fields) {
     if (!err) {
-      console.log(rows);
+      console.log(JSON.stringify(rows.length));
       res.send(JSON.stringify(rows));
     }
     else {

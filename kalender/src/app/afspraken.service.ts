@@ -22,8 +22,7 @@ export class AfsprakenService {
   }
 
   getAfspraak() {
-  	return this.http.get('http://localhost:3000/get', httpOptions)
-  		.map((res: Response) => res.json())
+  	return this.http.get<any[]>('http://localhost:3000/get', httpOptions)
   }
 
 }

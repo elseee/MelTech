@@ -319,8 +319,7 @@ var AfsprakenService = /** @class */ (function () {
         return this.http.post('http://localhost:3000/add', { startTijd: startTijd }, httpOptions);
     };
     AfsprakenService.prototype.getAfspraak = function () {
-        return this.http.get('http://localhost:3000/get', httpOptions)
-            .map(function (res) { return res.json(); });
+        return this.http.get('http://localhost:3000/get', httpOptions);
     };
     AfsprakenService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
@@ -465,15 +464,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var MyComponent = /** @class */ (function () {
     function MyComponent(afsprakenService) {
         this.afsprakenService = afsprakenService;
+        this.existingEvents = [];
     }
-    MyComponent.prototype.afspraakToevoegen = function (startTijd) {
+    MyComponent.prototype.afspraakOphalen = function (startTijd) {
         this.afsprakenService.addAfspraak(startTijd).subscribe(function (startTijd) { console.log(startTijd); });
     };
     MyComponent.prototype.afsprakenInladen = function () {
-        this.afsprakenService.getAfspraak().subscribe();
+        var _this = this;
+        this.afsprakenService.getAfspraak().subscribe(function (afspr) {
+            var afsprTijd = [];
+            for (var i = 0; i < afspr.length; i++) {
+                afsprTijd.push(afspr[i].startTijd);
+            }
+            _this.afsprakenToevoegen(afsprTijd);
+        });
+    };
+    MyComponent.prototype.afsprakenToevoegen = function (afsprTijd) {
+        for (var i = 0; i < afsprTijd.length; i++) {
+            var start = __WEBPACK_IMPORTED_MODULE_2_moment__(afsprTijd[i]);
+            var end = __WEBPACK_IMPORTED_MODULE_2_moment__(afsprTijd[i]).add(30, 'minutes');
+            console.log('start is: ' + afsprTijd[i]);
+            console.log('end is: ' + end);
+            var event_1 = {
+                title: 'afspraak mogelijkheid',
+                end: end,
+                start: start,
+                allDay: false
+            };
+            this.existingEvents.push(event_1);
+        }
+        console.log(this.existingEvents);
     };
     MyComponent.prototype.ngOnInit = function () {
         var self = this;
+        console.log(self.existingEvents);
+        this.afsprakenInladen();
         this.calendarOptions = {
             defaultView: 'agendaWeek',
             nowIndicator: true,
@@ -481,6 +506,7 @@ var MyComponent = /** @class */ (function () {
             maxTime: "19:00:00",
             aspectRatio: 1.5,
             selectable: true,
+            events: self.existingEvents,
             select: function (startDate, endDate) {
                 var duration = __WEBPACK_IMPORTED_MODULE_2_moment__["duration"](endDate.diff(startDate)).asHours();
                 var slots = duration / 0.5;
@@ -491,21 +517,23 @@ var MyComponent = /** @class */ (function () {
                         start: startDate,
                         end: end,
                         allDay: false,
-                        customer: 'Lisa',
-                        customerTel: '0612345678',
-                        customerEmail: 'test@gmail.com',
-                        customerProblem: 'rede a'
+                        customer: '',
+                        customerTel: '',
+                        customerEmail: '',
+                        customerProblem: ''
                     });
-                    self.afspraakToevoegen(startDate.format());
+                    self.afspraakOphalen(startDate.format());
                     startDate = __WEBPACK_IMPORTED_MODULE_2_moment__(end);
                 }
             },
             eventRender: function (event, element) {
-                element.append("<i class='closeon fas fa-trash-alt'></i>");
-                element.find(".closeon").click(function () {
-                    __WEBPACK_IMPORTED_MODULE_1_jquery__('#calendar').fullCalendar('removeEvents', event._id);
-                });
             }
+            // eventRender: function(event, element) {
+            // 	element.append( "<i class='closeon fas fa-trash-alt'></i>" );
+            // 	element.find(".closeon").click(function() {
+            // 	   $('#calendar').fullCalendar('removeEvents',event._id);
+            // 	});
+            //       }
         };
     };
     MyComponent = __decorate([
