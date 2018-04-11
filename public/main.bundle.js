@@ -286,6 +286,53 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/afspraken.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AfsprakenService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var httpOptions = {
+    headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({ 'Content-Type': 'application/json' })
+};
+var AfsprakenService = /** @class */ (function () {
+    function AfsprakenService(http) {
+        this.http = http;
+        this.afsprakenUrl = 'http://localhost:3000/add';
+    }
+    AfsprakenService.prototype.addAfspraak = function (startTijd) {
+        // console.log('in addAfspraak() met startTijd: ' + startTijd);
+        return this.http.post('http://localhost:3000/add', { startTijd: startTijd }, httpOptions);
+    };
+    AfsprakenService.prototype.getAfspraak = function () {
+        return this.http.get('http://localhost:3000/get', httpOptions)
+            .map(function (res) { return res.json(); });
+    };
+    AfsprakenService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], AfsprakenService);
+    return AfsprakenService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
@@ -338,10 +385,12 @@ var AppComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ap_angular2_fullcalendar_src_calendar_calendar__ = __webpack_require__("./node_modules/ap-angular2-fullcalendar/src/calendar/calendar.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ap_angular2_fullcalendar_src_calendar_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ap_angular2_fullcalendar_src_calendar_calendar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_my_component__ = __webpack_require__("./src/app/my/my-component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__afspraken_service__ = __webpack_require__("./src/app/afspraken.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ap_angular2_fullcalendar_src_calendar_calendar__ = __webpack_require__("./node_modules/ap-angular2-fullcalendar/src/calendar/calendar.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ap_angular2_fullcalendar_src_calendar_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ap_angular2_fullcalendar_src_calendar_calendar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__my_my_component__ = __webpack_require__("./src/app/my/my-component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -353,21 +402,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_2_ap_angular2_fullcalendar_src_calendar_calendar__["CalendarComponent"],
-                __WEBPACK_IMPORTED_MODULE_4__my_my_component__["a" /* MyComponent */]
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_4_ap_angular2_fullcalendar_src_calendar_calendar__["CalendarComponent"],
+                __WEBPACK_IMPORTED_MODULE_6__my_my_component__["a" /* MyComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */]
             ],
-            providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_3__afspraken_service__["a" /* AfsprakenService */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -394,17 +448,32 @@ module.exports = "\n<angular2-fullcalendar id=\"calendar\" [options]=\"calendarO
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__afspraken_service__ = __webpack_require__("./src/app/afspraken.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 
 
 var MyComponent = /** @class */ (function () {
-    function MyComponent() {
+    function MyComponent(afsprakenService) {
+        this.afsprakenService = afsprakenService;
+    }
+    MyComponent.prototype.afspraakToevoegen = function (startTijd) {
+        this.afsprakenService.addAfspraak(startTijd).subscribe(function (startTijd) { console.log(startTijd); });
+    };
+    MyComponent.prototype.afsprakenInladen = function () {
+        this.afsprakenService.getAfspraak().subscribe();
+    };
+    MyComponent.prototype.ngOnInit = function () {
+        var self = this;
         this.calendarOptions = {
             defaultView: 'agendaWeek',
             nowIndicator: true,
@@ -415,7 +484,6 @@ var MyComponent = /** @class */ (function () {
             select: function (startDate, endDate) {
                 var duration = __WEBPACK_IMPORTED_MODULE_2_moment__["duration"](endDate.diff(startDate)).asHours();
                 var slots = duration / 0.5;
-                console.log(duration);
                 for (var i = 0; i < slots; i++) {
                     var end = __WEBPACK_IMPORTED_MODULE_2_moment__(startDate).add(30, 'minutes');
                     __WEBPACK_IMPORTED_MODULE_1_jquery__('#calendar').fullCalendar('renderEvent', {
@@ -428,6 +496,7 @@ var MyComponent = /** @class */ (function () {
                         customerEmail: 'test@gmail.com',
                         customerProblem: 'rede a'
                     });
+                    self.afspraakToevoegen(startDate.format());
                     startDate = __WEBPACK_IMPORTED_MODULE_2_moment__(end);
                 }
             },
@@ -438,12 +507,13 @@ var MyComponent = /** @class */ (function () {
                 });
             }
         };
-    }
+    };
     MyComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-component',
             template: __webpack_require__("./src/app/my/my-component.html")
-        })
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__afspraken_service__["a" /* AfsprakenService */]])
     ], MyComponent);
     return MyComponent;
 }());

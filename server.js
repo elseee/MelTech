@@ -10,7 +10,7 @@ function getConnection() {
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'afspraken'
+    database: 'meltech'
   });
   return connection;
 }
@@ -24,6 +24,40 @@ app.listen(3000, function () {
 //   res.send('MelTech server');
 // });
 
+app.post('/add', function(req, res) {
+  console.log('in /add');
+  console.log(req.body.startTijd);
+  var connection = getConnection();
+  connection.connect();
+
+  var startTijd = req.body.startTijd; 
+  var newAfspraak = {id: 0, startTijd: startTijd};
+  var query = connection.query('INSERT INTO afspraken SET ?', newAfspraak, function (err, result) {
+    // console.log("added " +  newAfspraak);
+    res.status(200).end();
+  });
+
+  connection.end();
+});
+
+app.post('/get', function(req, res) {
+  console.log('in /get');
+  
+  var connection = getConnection();
+  connection.connect();
+
+  connection.query('SELECT * from afspraken', function(err, rows, fields) {
+    if (!err) {
+      console.log(rows);
+      res.send(JSON.stringify(rows));
+    }
+    else {
+      console.log('Error while performing Query.');
+    }
+  });
+
+  connection.end();
+});
 
 app.use(express.static('public'));
 
