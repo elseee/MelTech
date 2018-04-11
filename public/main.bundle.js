@@ -493,11 +493,10 @@ var MyComponent = /** @class */ (function () {
             };
             this.existingEvents.push(event_1);
         }
-        console.log(this.existingEvents);
     };
     MyComponent.prototype.ngOnInit = function () {
         var self = this;
-        console.log(self.existingEvents);
+        // console.log(self.existingEvents);
         this.afsprakenInladen();
         this.calendarOptions = {
             defaultView: 'agendaWeek',
@@ -527,13 +526,11 @@ var MyComponent = /** @class */ (function () {
                 }
             },
             eventRender: function (event, element) {
+                element.append("<i class='closeon fas fa-trash-alt'></i>");
+                element.find(".closeon").click(function () {
+                    __WEBPACK_IMPORTED_MODULE_1_jquery__('#calendar').fullCalendar('removeEvents', event._id);
+                });
             }
-            // eventRender: function(event, element) {
-            // 	element.append( "<i class='closeon fas fa-trash-alt'></i>" );
-            // 	element.find(".closeon").click(function() {
-            // 	   $('#calendar').fullCalendar('removeEvents',event._id);
-            // 	});
-            //       }
         };
     };
     MyComponent = __decorate([

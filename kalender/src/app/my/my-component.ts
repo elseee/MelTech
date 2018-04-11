@@ -19,21 +19,16 @@ export class MyComponent{
     	this.afsprakenService.addAfspraak(startTijd).subscribe((startTijd) => { console.log(startTijd) })
     }
 
-
     afsprakenInladen() {
     	this.afsprakenService.getAfspraak().subscribe(
-    			afspr => {
-    					
-    					let afsprTijd = [];
-    					
-    					for (let i = 0; i < afspr.length; i++) { 
-						    afsprTijd.push(afspr[i].startTijd);
-						}
-
-						this.afsprakenToevoegen(afsprTijd);
-						
-					}
-    		);
+			afspr => {
+				let afsprTijd = [];
+				for (let i = 0; i < afspr.length; i++) { 
+				    afsprTijd.push(afspr[i].startTijd);
+				}
+				this.afsprakenToevoegen(afsprTijd);
+			}
+    	);
     }	
 
 
@@ -53,11 +48,8 @@ export class MyComponent{
     			start: start,
     			allDay: false
     		}
-
     		this.existingEvents.push(event);
     	}
-
-    	console.log(this.existingEvents);
     }
     
     calendarOptions:Object 
@@ -65,7 +57,7 @@ export class MyComponent{
     ngOnInit() : void {
         let self = this;
 
-        console.log(self.existingEvents);
+        // console.log(self.existingEvents);
 
         this.afsprakenInladen()
 
@@ -103,7 +95,8 @@ export class MyComponent{
 			eventRender: function(event, element) {
 				element.append( "<i class='closeon fas fa-trash-alt'></i>" );
 				element.find(".closeon").click(function() {
-				   $('#calendar').fullCalendar('removeEvents',event._id);
+					console.log('in delete functie');
+				   $('#calendar').fullCalendar('removeEvents', event._id);
 				});
 	        }
     	}
