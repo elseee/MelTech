@@ -58,6 +58,26 @@ app.get('/get', function(req, res) {
   connection.end();
 });
 
+app.post('/delete', function(req, res) {
+  console.log('in /delete');
+  var afspraak = req.body.afspraak;
+
+  if (afspraak.length > 20) {
+    afspraak = afspraak.substring(0, afspraak.length - 6);
+  }
+  
+  var connection = getConnection();
+  connection.connect();
+
+  console.log(afspraak);
+  connection.query('DELETE from afspraken where startTijd = ?', afspraak,  function(err, rows, fields) {
+    console.log('deleted ' + afspraak);
+    res.status(200).end();
+  });
+
+  connection.end();
+});
+
 app.use(express.static('public'));
 
 

@@ -25,4 +25,8 @@ export class AfsprakenService {
   	return this.http.get<any[]>('http://localhost:3000/get', httpOptions)
   }
 
+  deleteAfspraak(afspraak) {
+  	return this.http.post('http://localhost:3000/delete', {afspraak: afspraak});
+  }
+
 }

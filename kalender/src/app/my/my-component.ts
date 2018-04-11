@@ -31,16 +31,12 @@ export class MyComponent{
     	);
     }	
 
-
     existingEvents = [];
 
     afsprakenToevoegen(afsprTijd) {
     	for (let i = 0; i < afsprTijd.length; i++) {
     		var start = moment(afsprTijd[i]);
     		var end = moment(afsprTijd[i]).add(30, 'minutes');
-
-    		console.log('start is: ' + afsprTijd[i]);
-    		console.log('end is: ' + end);
 
     		let event = {
     			title: 'afspraak mogelijkheid',
@@ -51,13 +47,15 @@ export class MyComponent{
     		this.existingEvents.push(event);
     	}
     }
+
+    afspraakVerwijderen(afspraak) {
+    	this.afsprakenService.deleteAfspraak(afspraak).subscribe();
+    }
     
     calendarOptions:Object 
 
     ngOnInit() : void {
         let self = this;
-
-        // console.log(self.existingEvents);
 
         this.afsprakenInladen()
 
@@ -93,11 +91,11 @@ export class MyComponent{
 				}
 			},
 			eventRender: function(event, element) {
-				element.append( "<i class='closeon fas fa-trash-alt'></i>" );
-				element.find(".closeon").click(function() {
-					console.log('in delete functie');
-				   $('#calendar').fullCalendar('removeEvents', event._id);
-				});
+	            element.append( "<span class='closeon'><i class='fas fa-trash-alt'></i></span>" );
+	            element.find(".closeon").click(function() {
+	            	self.afspraakVerwijderen(event.start.format());
+	                $('#calendar').fullCalendar('removeEvents',event._id);
+	            });
 	        }
     	}
      }

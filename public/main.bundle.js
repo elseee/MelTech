@@ -321,6 +321,9 @@ var AfsprakenService = /** @class */ (function () {
     AfsprakenService.prototype.getAfspraak = function () {
         return this.http.get('http://localhost:3000/get', httpOptions);
     };
+    AfsprakenService.prototype.deleteAfspraak = function (afspraak) {
+        return this.http.post('http://localhost:3000/delete', { afspraak: afspraak });
+    };
     AfsprakenService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
@@ -483,8 +486,6 @@ var MyComponent = /** @class */ (function () {
         for (var i = 0; i < afsprTijd.length; i++) {
             var start = __WEBPACK_IMPORTED_MODULE_2_moment__(afsprTijd[i]);
             var end = __WEBPACK_IMPORTED_MODULE_2_moment__(afsprTijd[i]).add(30, 'minutes');
-            console.log('start is: ' + afsprTijd[i]);
-            console.log('end is: ' + end);
             var event_1 = {
                 title: 'afspraak mogelijkheid',
                 end: end,
@@ -494,9 +495,11 @@ var MyComponent = /** @class */ (function () {
             this.existingEvents.push(event_1);
         }
     };
+    MyComponent.prototype.afspraakVerwijderen = function (afspraak) {
+        this.afsprakenService.deleteAfspraak(afspraak).subscribe();
+    };
     MyComponent.prototype.ngOnInit = function () {
         var self = this;
-        // console.log(self.existingEvents);
         this.afsprakenInladen();
         this.calendarOptions = {
             defaultView: 'agendaWeek',
@@ -526,8 +529,9 @@ var MyComponent = /** @class */ (function () {
                 }
             },
             eventRender: function (event, element) {
-                element.append("<i class='closeon fas fa-trash-alt'></i>");
+                element.append("<span class='closeon'><i class='fas fa-trash-alt'></i></span>");
                 element.find(".closeon").click(function () {
+                    self.afspraakVerwijderen(event.start.format());
                     __WEBPACK_IMPORTED_MODULE_1_jquery__('#calendar').fullCalendar('removeEvents', event._id);
                 });
             }
