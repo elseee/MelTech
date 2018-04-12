@@ -30,13 +30,34 @@ app.listen(3000, function () {
 *
 */
 
-app.post('/kalender', function(req, res) {
-  console.log('in /kalender');
-  console.log(req.body.password);
+app.post('/login', function(req, res) {
+  console.log('in /login');
+  user = req.body.username;
+  password = req.body.password;
+
   var connection = getConnection();
   connection.connect();
 
+  if ( user != undefined && user == 'admin' ) {
+    var query = connection.query('select password from login where user = ?', user, function (err, result) {
+
+      if (result[0].password == password ) {
+        console.log('goed');
+        res.send({'result':'goed'});
+      }
+      else {
+        console.log('password of username is fout');
+        res.status(401).send({'result': 'fout'});
+      }
+
+    });
+  }
+  else {
+    res.status(401).send({'result': 'fout'});
+  }
+
   connection.end();
+  
 });
 
 app.post('/add', function(req, res) {
@@ -96,5 +117,9 @@ app.post('/delete', function(req, res) {
 
 
 app.use(express.static("kalender/dist"));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'kalender/dist/index.html'));
+});
 
 
