@@ -11,6 +11,7 @@ import { MyComponent } from './my/my-component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { KlantComponent } from './klant/klant.component';
+import { MapsComponent } from './maps/maps.component';
 
 
 
@@ -20,7 +21,8 @@ import { KlantComponent } from './klant/klant.component';
     CalendarComponent,
     MyComponent,
     LoginComponent,
-    KlantComponent
+    KlantComponent,
+    MapsComponent
   ],
   imports: [
     BrowserModule,
