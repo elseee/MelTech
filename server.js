@@ -23,6 +23,13 @@ app.listen(3000, function () {
 //   res.send('MelTech server');
 // });
 
+
+/*
+*
+*     Admin kalender
+*
+*/
+
 app.post('/add', function(req, res) {
   console.log('in /add');
   console.log(req.body.startTijd);
@@ -78,6 +85,10 @@ app.post('/delete', function(req, res) {
   connection.end();
 });
 
-app.use(express.static('public'));
+app.get('*', function(req, res) {
+  res.sendfile('kalender/dist')
+})
+
+app.use(express.static(path.join(__dirname, "kalender/dist")));
 
 

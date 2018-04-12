@@ -8,6 +8,8 @@ import {AfsprakenService} from "./afspraken.service";
 import {CalendarComponent} from "ap-angular2-fullcalendar/src/calendar/calendar";
 import { AppComponent } from './app.component';
 import { MyComponent } from './my/my-component';
+import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 
@@ -15,11 +17,13 @@ import { MyComponent } from './my/my-component';
   declarations: [
     AppComponent,
     CalendarComponent,
-    MyComponent
+    MyComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     AfsprakenService
