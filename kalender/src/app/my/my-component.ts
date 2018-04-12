@@ -11,7 +11,7 @@ import {AfsprakenService} from "../afspraken.service";
   templateUrl: 'my-component.html'
 })
 export class MyComponent{
-    constructor (private afsprakenService: AfsprakenService ) { 
+    constructor ( private afsprakenService: AfsprakenService ) { 
     	
     }
 

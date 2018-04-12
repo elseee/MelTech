@@ -33,13 +33,13 @@ body {
 
 .closeon {
     position: absolute;
-    top: 6px;
+    top: 2px;
     right: 5px;
     cursor: pointer;
     z-index: 100;
     font-size: 12px;
     background: #4ABDAC;
-    padding: 0 4px;
+    padding: 2px 4px;
 }
 
 .fc-event .fc-bg {

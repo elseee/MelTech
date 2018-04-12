@@ -30,6 +30,15 @@ app.listen(3000, function () {
 *
 */
 
+app.post('/kalender', function(req, res) {
+  console.log('in /kalender');
+  console.log(req.body.password);
+  var connection = getConnection();
+  connection.connect();
+
+  connection.end();
+});
+
 app.post('/add', function(req, res) {
   console.log('in /add');
   console.log(req.body.startTijd);
@@ -83,12 +92,9 @@ app.post('/delete', function(req, res) {
   });
 
   connection.end();
-});
+}); 
 
-app.get('*', function(req, res) {
-  res.sendfile('kalender/dist')
-})
 
-app.use(express.static(path.join(__dirname, "kalender/dist")));
+app.use(express.static("kalender/dist"));
 
 

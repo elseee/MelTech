@@ -16,13 +16,18 @@ export class AfsprakenService {
 
   constructor(private http: HttpClient) { }
 
+  logIn(password, username) {
+    console.log(password);
+    return this.http.post('http://localhost:3000/kalender', password, httpOptions);
+  }
+
   addAfspraak(startTijd) {
   	// console.log('in addAfspraak() met startTijd: ' + startTijd);
-  	return this.http.post('http://localhost:3000/add', {startTijd: startTijd}, httpOptions)
+  	return this.http.post('http://localhost:3000/add', {startTijd: startTijd}, httpOptions);
   }
 
   getAfspraak() {
-  	return this.http.get<any[]>('http://localhost:3000/get', httpOptions)
+  	return this.http.get<any[]>('http://localhost:3000/get', httpOptions);
   }
 
   deleteAfspraak(afspraak) {
