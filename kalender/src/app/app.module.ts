@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { MyComponent } from './my/my-component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { KlantComponent } from './klant/klant.component';
 
 
 
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     CalendarComponent,
     MyComponent,
-    LoginComponent
+    LoginComponent,
+    KlantComponent
   ],
   imports: [
     BrowserModule,
