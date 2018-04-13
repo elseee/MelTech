@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kalender</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  
+
+  <script>$(function () {
+        
+        $(document).ready(function(){
+          $("#datepicker").datepicker()
+        });
+
+      $.datepicker.regional['nl'] = {
+              clearText: 'Effacer', clearStatus: '',
+              closeText: 'sluiten', closeStatus: 'Onveranderd sluiten ',
+              prevText: '<vorige', prevStatus: 'Zie de vorige maand',
+              nextText: 'volgende>', nextStatus: 'Zie de volgende maand',
+              currentText: 'Huidige', currentStatus: 'Bekijk de huidige maand',
+              monthNames: ['januari', 'februari', 'maart', 'april', 'mei', 'juni',
+                'juli', 'augustus', 'september', 'oktober', 'november', 'december'],
+              monthNamesShort: ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun',
+                'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+              monthStatus: 'Bekijk een andere maand', yearStatus: 'Bekijk nog een jaar',
+              weekHeader: 'Sm', weekStatus: '',
+              dayNames: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
+              dayNamesShort: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
+              dayNamesMin: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
+              dayStatus: 'Gebruik DD als de eerste dag van de week', dateStatus: 'Kies DD, MM d',
+              dateFormat: 'dd/mm/yy', firstDay: 1,
+              initStatus: 'Kies een datum', isRTL: false
+            };
+       $.datepicker.setDefaults($.datepicker.regional['nl']);
+        });
+    </script>
+      <script>
+        function initMap() {
+          var uluru = { lat: 52.488495, lng: 4.809844 };
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: uluru
+          });
+
+          var contentString =
+            '<b>Mel Tech</b><br>Malerstraat 13<br>1531NW Wormer';
+
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            title: 'Uluru (Ayers Rock)'
+          });
+          marker.addListener('click', function () {
+            infowindow.open(map, marker);
+          });
+        }
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_bemgRZTmPTwAyubbAxEfENwdEQXOm2o&callback=initMap">
+      </script>
+</head>
+<body>
+  <app-root></app-root>
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="scripts.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
