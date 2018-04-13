@@ -3,6 +3,7 @@ import {AfsprakenService} from "../afspraken.service";
 import {Router} from '@angular/router';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,11 +14,24 @@ export class LoginComponent implements OnInit {
 	password: string;
 	username: string;
 
+	loggedIn:boolean = true;
+
+	 isLoggedIn() {
+    	let permissionIs = sessionStorage.getItem('user');
+    	console.log(permissionIs);
+
+    	if (permissionIs == 'admin') {
+    		this.loggedIn = false;
+    		console.log(this.loggedIn);
+    		this.router.navigate(['/kalender']);
+    	}
+    }
+
 
   constructor( private afsprakenService: AfsprakenService, private router: Router ) { }
 
   ngOnInit() {
-
+  	this.isLoggedIn();
   }
 
   error = '';
@@ -29,6 +43,7 @@ export class LoginComponent implements OnInit {
 	this.afsprakenService.logIn(password, username).subscribe(
 			(response) => { 
 				console.log(response);
+				sessionStorage.setItem('user', 'admin');
 				this.router.navigate(['/kalender']);
 			},
 			(error) => { 
@@ -36,6 +51,10 @@ export class LoginComponent implements OnInit {
 				this.error = 'Uw wachtwoord en/of gebruikersnaam zijn onjuist.';
 			} 
 		);
+	}
+
+	canActivate() {
+		return true;
 	}
 
 

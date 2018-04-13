@@ -3,16 +3,31 @@ import {MomentModule} from 'angular2-moment';
 import * as $ from 'jquery';
 import * as moment from 'moment';
 import {AfsprakenService} from "../afspraken.service";
-
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'my-component',
   templateUrl: 'my-component.html'
 })
 export class MyComponent{
-    constructor ( private afsprakenService: AfsprakenService ) { 
+    constructor ( private afsprakenService: AfsprakenService, private router: Router ) { 
     	
+    }
+
+    permission:boolean = true;
+
+    hasPermission() {
+    	let permissionIs = sessionStorage.getItem('user');
+    	console.log(permissionIs);
+
+    	if (permissionIs != 'admin') {
+    		this.permission = false;
+    		console.log(this.permission);
+    		this.router.navigate(['/admin']);
+    	}
+    	else {
+
+    	}
     }
 
     afspraakOphalen(startTijd) {
@@ -54,8 +69,14 @@ export class MyComponent{
     
     calendarOptions:Object 
 
+
+
+
+
     ngOnInit() : void {
         let self = this;
+
+        this.hasPermission();
 
         this.afsprakenInladen()
 
