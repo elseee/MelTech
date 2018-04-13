@@ -9,7 +9,7 @@ function getConnection() {
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'Rusty1!',
     database: 'meltech'
   });
   return connection;
