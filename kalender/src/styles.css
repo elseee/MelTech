@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "fullcalendar/dist/fullcalendar.min.css";
 
+@font-face {
+    font-family: Gudea;
+    src: url(fonts/Gudea-Regular.ttf);
+}
+
 body {
-  font-family: 'Gudea';
+  font-family: 'Gudea', 'Arial';
 }
 
 .fc-unthemed td.fc-today {
@@ -39,7 +44,7 @@ body {
     z-index: 100;
     font-size: 12px;
     background: #4ABDAC;
-    padding: 2px 4px;
+    padding: 0.5px 4px;
 }
 
 .fc-event .fc-bg {
@@ -58,6 +63,7 @@ body {
 .ui-datepicker a {
 	text-decoration: none;
 }
+
 /* DatePicker Table */
 .ui-datepicker table {
 	width: 100%;
