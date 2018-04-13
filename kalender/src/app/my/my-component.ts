@@ -14,15 +14,14 @@ export class MyComponent{
     	
     }
 
+    //Check if user loggedin
     permission:boolean = true;
 
     hasPermission() {
     	let permissionIs = sessionStorage.getItem('user');
-    	console.log(permissionIs);
 
     	if (permissionIs != 'admin') {
     		this.permission = false;
-    		console.log(this.permission);
     		this.router.navigate(['/admin']);
     	}
     	else {
@@ -30,13 +29,16 @@ export class MyComponent{
     	}
     }
 
-    afspraakOphalen(startTijd) {
+    //Add afspraken to database
+    afspraakInDatabase(startTijd) {
     	this.afsprakenService.addAfspraak(startTijd).subscribe((startTijd) => { console.log(startTijd) })
     }
 
+    //Get afspraken onload
     afsprakenInladen() {
     	this.afsprakenService.getAfspraak().subscribe(
 			afspr => {
+				
 				let afsprTijd = [];
 				for (let i = 0; i < afspr.length; i++) { 
 				    afsprTijd.push(afspr[i].startTijd);
@@ -50,8 +52,8 @@ export class MyComponent{
 
     afsprakenToevoegen(afsprTijd) {
     	for (let i = 0; i < afsprTijd.length; i++) {
-    		var start = moment(afsprTijd[i]);
-    		var end = moment(afsprTijd[i]).add(30, 'minutes');
+    		var start = moment(afsprTijd[i]).local();
+    		var end = moment(afsprTijd[i]).add(30, 'minutes').local();
 
     		let event = {
     			title: 'afspraak mogelijkheid',
@@ -59,19 +61,18 @@ export class MyComponent{
     			start: start,
     			allDay: false
     		}
+
     		this.existingEvents.push(event);
     	}
     }
 
+    //delete afspraken
     afspraakVerwijderen(afspraak) {
     	this.afsprakenService.deleteAfspraak(afspraak).subscribe();
     }
     
+
     calendarOptions:Object 
-
-
-
-
 
     ngOnInit() : void {
         let self = this;
@@ -87,7 +88,9 @@ export class MyComponent{
 			maxTime: "19:00:00",
 			aspectRatio: 1.5,
 			selectable: true,
+			weekends: false,
 			events: self.existingEvents,
+			utc: false,
 			select: function(startDate, endDate) {
 				var duration = moment.duration(endDate.diff(startDate)).asHours();
 				var slots = duration / 0.5;
@@ -106,20 +109,20 @@ export class MyComponent{
 						customerProblem: ''
 			        });
 
-			       self.afspraakOphalen(startDate.format());	 
+			        self.afspraakInDatabase(startDate.local().format());	 
 
-			       startDate = moment(end);
+			        startDate = moment(end);
 				}
 			},
 			eventRender: function(event, element) {
 	            element.append( "<span class='closeon'><i class='fas fa-trash-alt'></i></span>" );
 	            element.find(".closeon").click(function() {
-	            	self.afspraakVerwijderen(event.start.format());
+	            	self.afspraakVerwijderen(event.start.local().format());
 	                $('#calendar').fullCalendar('removeEvents',event._id);
 	            });
 	        }
     	}
-     }
+    }
 
     
 }
