@@ -369,8 +369,8 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]],
             declarations: []
         })
     ], AppRoutingModule);
@@ -547,14 +547,14 @@ var KlantComponent = /** @class */ (function () {
 /***/ "./src/app/login/login.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".error {\n\tfont-weight: bold;\n    color: red;\n}"
+module.exports = ".error {\n\tfont-weight: bold;\n    color: red;\n}\n\nh3 {\n\ttext-align: center;\n    font-weight: bold;\n    margin: 80px 0 40px;\n}"
 
 /***/ }),
 
 /***/ "./src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n\t<div class=\"col-sm-4 col-sm-offset-4\">\n\t\t<form>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"exampleInputEmail1\">Gebruikersnaam</label>\n\t\t\t\t<input [(ngModel)]=\"username\" type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Voer gebruikersnaam in\" name=\"username\" required>\n\t\t\t</div>\n\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"exampleInputPassword1\">Wachtwoord</label>\n\t\t\t\t<input [(ngModel)]=\"password\" type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Wachtwoord\" name=\"password\" required>\n\t\t\t</div>\n\n\t\t\t<p class=\"error\">{{error}}</p>\n\n\t\t\t<button (click)=\"getInlog()\" class=\"btn btn-primary\">Inloggen</button>\n\n\t\t</form>\n\n\n\t</div>\n</div>\n"
+module.exports = "<div *ngIf=\"loggedIn\">\n\t<div class=\"row\">\n\t\t<div class=\"col-sm-4 col-sm-offset-4\">\n\t\t\t<form>\n\t\t\t\t<h3>Log hier in om op de admin pagina te komen</h3>\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label for=\"exampleInputEmail1\">Gebruikersnaam</label>\n\t\t\t\t\t<input [(ngModel)]=\"username\" type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Voer gebruikersnaam in\" name=\"username\" required>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label for=\"exampleInputPassword1\">Wachtwoord</label>\n\t\t\t\t\t<input [(ngModel)]=\"password\" type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Wachtwoord\" name=\"password\" required>\n\t\t\t\t</div>\n\n\t\t\t\t<p class=\"error\">{{error}}</p>\n\n\t\t\t\t<button (click)=\"getInlog()\" class=\"btn btn-primary\">Inloggen</button>\n\n\t\t\t</form>\n\n\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -582,9 +582,20 @@ var LoginComponent = /** @class */ (function () {
     function LoginComponent(afsprakenService, router) {
         this.afsprakenService = afsprakenService;
         this.router = router;
+        this.loggedIn = true;
         this.error = '';
     }
+    LoginComponent.prototype.isLoggedIn = function () {
+        var permissionIs = sessionStorage.getItem('user');
+        console.log(permissionIs);
+        if (permissionIs == 'admin') {
+            this.loggedIn = false;
+            console.log(this.loggedIn);
+            this.router.navigate(['/kalender']);
+        }
+    };
     LoginComponent.prototype.ngOnInit = function () {
+        this.isLoggedIn();
     };
     LoginComponent.prototype.getInlog = function () {
         var _this = this;
@@ -592,11 +603,15 @@ var LoginComponent = /** @class */ (function () {
         var username = this.username;
         this.afsprakenService.logIn(password, username).subscribe(function (response) {
             console.log(response);
+            sessionStorage.setItem('user', 'admin');
             _this.router.navigate(['/kalender']);
         }, function (error) {
             console.log(error.error);
             _this.error = 'Uw wachtwoord en/of gebruikersnaam zijn onjuist.';
         });
+    };
+    LoginComponent.prototype.canActivate = function () {
+        return true;
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
@@ -608,7 +623,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/login/login.component.html"),
             styles: [__webpack_require__("./src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__afspraken_service__["a" /* AfsprakenService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__afspraken_service__["a" /* AfsprakenService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -667,10 +682,17 @@ var MapsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/my/my-component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".fc-toolbar .fc-left h2 {\n    font-size: 18px;\n    padding-top: 10px;\n}\n\n.header {\n\tcolor: #fff;\n\tbackground-color: #333;\n\tmargin-bottom: 40px;\n\tpadding-top: 60px;\n\tpadding: 60px 0 80px;\n}\n\n.container {\n\twidth: 100vw;\n\tmargin-bottom: 60px;\n}\n\n.header a {\n\tcolor: #fff;\n    font-size: 25px;\n    text-align: center;\n}\n\n.header .fa-chevron-down {\n\tdisplay: block;\n    margin: auto;\n    position: relative;\n    -webkit-animation: bounce 2s infinite;\n    animation: bounce 2s infinite;\n}\n\n@-webkit-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n​\n\n@-moz-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n@keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}"
+
+/***/ }),
+
 /***/ "./src/app/my/my-component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<angular2-fullcalendar id=\"calendar\" [options]=\"calendarOptions\"></angular2-fullcalendar>\n"
+module.exports = "<div *ngIf=\"permission\">\n\t<div class=\"container\">\n\t\t<div class=\"row header\">\n\t\t\t<div class=\"col-md-4 col-md-offset-4\">\n\t\t\t\t<h1>Welkom {{user}}!</h1>\n\t\t\t\t<p>Hieronder kunnen mogelijke afspraakmomenten ingepland worden en geplande afspraken bekeken worden.</p>\n\t\t\t\t<a [routerLink]=\"['/kalender']\" fragment=\"calendar\"\n\t\t\t\t(click)=\"goToCalendar('calendar')\">\n\t\t\t\t\t<i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8 col-md-offset-2\">\n\t\t\t\t<angular2-fullcalendar id=\"calendar\" [options]=\"calendarOptions\"></angular2-fullcalendar>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -685,6 +707,7 @@ module.exports = "\n<angular2-fullcalendar id=\"calendar\" [options]=\"calendarO
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__afspraken_service__ = __webpack_require__("./src/app/afspraken.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -698,51 +721,94 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MyComponent = /** @class */ (function () {
-    function MyComponent(afsprakenService) {
+    function MyComponent(afsprakenService, router, route) {
         this.afsprakenService = afsprakenService;
+        this.router = router;
+        this.route = route;
+        //Check if user loggedin
+        this.permission = true;
+        //check user
+        this.user = sessionStorage.getItem('user');
         this.existingEvents = [];
     }
-    MyComponent.prototype.afspraakOphalen = function (startTijd) {
+    MyComponent.prototype.hasPermission = function () {
+        var permissionIs = sessionStorage.getItem('user');
+        if (permissionIs != 'admin') {
+            this.permission = false;
+            this.router.navigate(['/admin']);
+        }
+        else {
+        }
+    };
+    //Add afspraken to database
+    MyComponent.prototype.afspraakInDatabase = function (startTijd) {
         this.afsprakenService.addAfspraak(startTijd).subscribe(function (startTijd) { console.log(startTijd); });
     };
+    //Get afspraken onload
     MyComponent.prototype.afsprakenInladen = function () {
         var _this = this;
         this.afsprakenService.getAfspraak().subscribe(function (afspr) {
             var afsprTijd = [];
             for (var i = 0; i < afspr.length; i++) {
-                afsprTijd.push(afspr[i].startTijd);
+                afsprTijd.push(afspr[i]);
             }
             _this.afsprakenToevoegen(afsprTijd);
         });
     };
     MyComponent.prototype.afsprakenToevoegen = function (afsprTijd) {
         for (var i = 0; i < afsprTijd.length; i++) {
-            var start = __WEBPACK_IMPORTED_MODULE_2_moment__(afsprTijd[i]);
-            var end = __WEBPACK_IMPORTED_MODULE_2_moment__(afsprTijd[i]).add(30, 'minutes');
-            var event_1 = {
-                title: 'afspraak mogelijkheid',
-                end: end,
-                start: start,
-                allDay: false
-            };
-            this.existingEvents.push(event_1);
+            var start = __WEBPACK_IMPORTED_MODULE_2_moment__(afsprTijd[i].startTijd).local();
+            var end = __WEBPACK_IMPORTED_MODULE_2_moment__(afsprTijd[i].startTijd).add(30, 'minutes').local();
+            if (afsprTijd[i].naam != undefined) {
+                var event_1 = {
+                    title: afsprTijd[i].naam,
+                    end: end,
+                    start: start,
+                    allDay: false,
+                    className: 'afspraak'
+                };
+                this.existingEvents.push(event_1);
+            }
+            else {
+                var event_2 = {
+                    title: 'afspraak mogelijkheid',
+                    end: end,
+                    start: start,
+                    allDay: false
+                };
+                this.existingEvents.push(event_2);
+            }
         }
     };
+    //delete afspraken
     MyComponent.prototype.afspraakVerwijderen = function (afspraak) {
         this.afsprakenService.deleteAfspraak(afspraak).subscribe();
     };
+    MyComponent.prototype.goToCalendar = function (id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        // $('html, body').animate({
+        //     scrollTop: this.elem.offsetTop
+        // }, 1000);
+    };
     MyComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.fragment.subscribe(function (fragment) { _this.fragment = fragment; });
         var self = this;
+        this.hasPermission();
         this.afsprakenInladen();
         this.calendarOptions = {
             defaultView: 'agendaWeek',
             nowIndicator: true,
             minTime: "07:00:00",
-            maxTime: "19:00:00",
+            maxTime: "22:00:00",
             aspectRatio: 1.5,
             selectable: true,
+            weekends: false,
             events: self.existingEvents,
+            allDaySlot: false,
+            timeFormat: 'H:mm',
             select: function (startDate, endDate) {
                 var duration = __WEBPACK_IMPORTED_MODULE_2_moment__["duration"](endDate.diff(startDate)).asHours();
                 var slots = duration / 0.5;
@@ -758,25 +824,27 @@ var MyComponent = /** @class */ (function () {
                         customerEmail: '',
                         customerProblem: ''
                     });
-                    self.afspraakOphalen(startDate.format());
+                    self.afspraakInDatabase(startDate.local().format());
                     startDate = __WEBPACK_IMPORTED_MODULE_2_moment__(end);
                 }
             },
             eventRender: function (event, element) {
                 element.append("<span class='closeon'><i class='fas fa-trash-alt'></i></span>");
                 element.find(".closeon").click(function () {
-                    self.afspraakVerwijderen(event.start.format());
+                    self.afspraakVerwijderen(event.start.local().format());
                     __WEBPACK_IMPORTED_MODULE_1_jquery__('#calendar').fullCalendar('removeEvents', event._id);
                 });
             }
         };
+        // console.log($('#calendar').fullCalendar('clientEvents', 'ingepland')); 
     };
     MyComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-component',
-            template: __webpack_require__("./src/app/my/my-component.html")
+            template: __webpack_require__("./src/app/my/my-component.html"),
+            styles: [__webpack_require__("./src/app/my/my-component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__afspraken_service__["a" /* AfsprakenService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__afspraken_service__["a" /* AfsprakenService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]])
     ], MyComponent);
     return MyComponent;
 }());

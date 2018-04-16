@@ -3,14 +3,17 @@ import {MomentModule} from 'angular2-moment';
 import * as $ from 'jquery';
 import * as moment from 'moment';
 import {AfsprakenService} from "../afspraken.service";
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'my-component',
-  templateUrl: 'my-component.html'
+  templateUrl: 'my-component.html',
+  styleUrls: ['./my-component.css']
+
 })
 export class MyComponent{
-    constructor ( private afsprakenService: AfsprakenService, private router: Router ) { 
+
+    constructor ( private afsprakenService: AfsprakenService, private router: Router, private route: ActivatedRoute ) { 
     	
     }
 
@@ -29,6 +32,9 @@ export class MyComponent{
     	}
     }
 
+    //check user
+    user: string = sessionStorage.getItem('user');
+
     //Add afspraken to database
     afspraakInDatabase(startTijd) {
     	this.afsprakenService.addAfspraak(startTijd).subscribe((startTijd) => { console.log(startTijd) })
@@ -41,7 +47,7 @@ export class MyComponent{
 				
 				let afsprTijd = [];
 				for (let i = 0; i < afspr.length; i++) { 
-				    afsprTijd.push(afspr[i].startTijd);
+				    afsprTijd.push(afspr[i]);
 				}
 				this.afsprakenToevoegen(afsprTijd);
 			}
@@ -52,17 +58,30 @@ export class MyComponent{
 
     afsprakenToevoegen(afsprTijd) {
     	for (let i = 0; i < afsprTijd.length; i++) {
-    		var start = moment(afsprTijd[i]).local();
-    		var end = moment(afsprTijd[i]).add(30, 'minutes').local();
+    		var start = moment(afsprTijd[i].startTijd).local();
+    		var end = moment(afsprTijd[i].startTijd).add(30, 'minutes').local();
 
-    		let event = {
-    			title: 'afspraak mogelijkheid',
-    			end: end,
-    			start: start,
-    			allDay: false
+    		if (afsprTijd[i].naam != undefined ) {
+    			let event = {
+	    			title: afsprTijd[i].naam,
+	    			end: end,
+	    			start: start,
+	    			allDay: false,
+	    			className: 'afspraak'
+	    		}
+
+	    		this.existingEvents.push(event);
     		}
+    		else {
+    			let event = {
+	    			title: 'afspraak mogelijkheid',
+	    			end: end,
+	    			start: start,
+	    			allDay: false
+	    		}
 
-    		this.existingEvents.push(event);
+	    		this.existingEvents.push(event);
+    		}
     	}
     }
 
@@ -70,11 +89,23 @@ export class MyComponent{
     afspraakVerwijderen(afspraak) {
     	this.afsprakenService.deleteAfspraak(afspraak).subscribe();
     }
+
+   	private fragment: string;
+
+
+	goToCalendar(id) {
+        document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+        // $('html, body').animate({
+        //     scrollTop: this.elem.offsetTop
+        // }, 1000);
+	}
     
 
     calendarOptions:Object 
 
     ngOnInit() : void {
+        this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
+        
         let self = this;
 
         this.hasPermission();
@@ -85,12 +116,13 @@ export class MyComponent{
 			defaultView: 'agendaWeek',
 			nowIndicator: true,
 			minTime: "07:00:00",
-			maxTime: "19:00:00",
+			maxTime: "22:00:00",
 			aspectRatio: 1.5,
 			selectable: true,
 			weekends: false,
 			events: self.existingEvents,
-			utc: false,
+			allDaySlot: false,
+			timeFormat: 'H:mm',
 			select: function(startDate, endDate) {
 				var duration = moment.duration(endDate.diff(startDate)).asHours();
 				var slots = duration / 0.5;
@@ -122,6 +154,10 @@ export class MyComponent{
 	            });
 	        }
     	}
+
+    	// console.log($('#calendar').fullCalendar('clientEvents', 'ingepland')); 
+
+    
     }
 
     

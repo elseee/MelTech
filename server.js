@@ -9,7 +9,7 @@ function getConnection() {
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Rusty1!',
+    password: '',
     database: 'meltech'
   });
   return connection;
@@ -62,7 +62,7 @@ app.post('/login', function(req, res) {
 
 app.post('/add', function(req, res) {
   console.log('in /add');
-  console.log(req.body.startTijd);
+  // console.log(req.body.startTijd);
   var connection = getConnection();
   connection.connect();
 
@@ -103,7 +103,7 @@ app.post('/delete', function(req, res) {
   connection.connect();
 
   connection.query('DELETE from afspraken where startTijd = ?', afspraak,  function(err, rows, fields) {
-    console.log('deleted ' + afspraak);
+    // console.log('deleted ' + afspraak);
     res.status(200).end();
   });
 

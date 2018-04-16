@@ -6,8 +6,17 @@
     src: url(fonts/Gudea-Regular.ttf);
 }
 
+@font-face {
+    font-family: GudeaBold;
+    src: url(fonts/Gudea-Bold.ttf);
+}
+
 body {
-  font-family: 'Gudea', 'Arial';
+ 	font-family: 'Gudea', 'Arial';
+}
+
+h1, h2, h3, h4 {
+	font-family: 'GudeaBold'
 }
 
 .fc-unthemed td.fc-today {
@@ -15,8 +24,12 @@ body {
 }
 
 .fc-event, .fc-event-dot {
-    background-color: #4ABDAC;
+    background-color: #a3a3a3;
     padding: 5px;
+}
+
+.fc-event.afspraak {
+    background-color: #4ABDAC;
 }
 
 .fc-event {
@@ -43,8 +56,12 @@ body {
     cursor: pointer;
     z-index: 100;
     font-size: 12px;
-    background: #4ABDAC;
+    background: #a3a3a3;
     padding: 0.5px 4px;
+}
+
+.afspraak .closeon {
+	background-color: #4ABDAC;
 }
 
 .fc-event .fc-bg {

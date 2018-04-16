@@ -1,0 +1,61 @@
+.fc-toolbar .fc-left h2 {
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.header {
+	color: #fff;
+	background-color: #333;
+	margin-bottom: 40px;
+	padding-top: 60px;
+	padding: 60px 0 80px;
+}
+
+.container {
+	width: 100vw;
+	margin-bottom: 60px;
+}
+
+.header a {
+	color: #fff;
+    font-size: 25px;
+    text-align: center;
+}
+
+.header .fa-chevron-down {
+	display: block;
+    margin: auto;
+    position: relative;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+}
+
+@-webkit-keyframes bounce
+{
+    0%   {top: 25px;}
+    15%	 {top: 30px;}
+    30%	 {top: 25px;}
+    40%	 {top: 27px;}
+    50%	 {top: 25px;}
+    100% {top: 25px;}
+}​
+
+@-moz-keyframes bounce
+{
+    0%   {top: 25px;}
+    15%	 {top: 30px;}
+    30%	 {top: 25px;}
+    40%	 {top: 27px;}
+    50%	 {top: 25px;}
+    100% {top: 25px;}
+}
+
+@keyframes bounce
+{
+    0%   {top: 25px;}
+    15%	 {top: 30px;}
+    30%	 {top: 25px;}
+    40%	 {top: 27px;}
+    50%	 {top: 25px;}
+    100% {top: 25px;}
+}

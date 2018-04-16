@@ -8,7 +8,8 @@ create table afspraken (
   naam varchar(250),
   email varchar(250),
   tel varchar(25),
-  probleem varchar(250)
+  probleem varchar(250),
+  opmerkingen varchar(250)
 );
 
 -- create login table
