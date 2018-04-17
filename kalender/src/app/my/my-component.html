@@ -1,7 +1,8 @@
 <div *ngIf="permission">
 	<div class="container">
 		<div class="row header">
-			<div class="col-md-4 col-md-offset-4">
+			<div class="col-xs-4 col-xs-offset-4">
+				<a class="loguit" (click)="logUit()">Log uit <i class="fas fa-sign-out-alt"></i></a>
 				<h1>Welkom {{user}}!</h1>
 				<p>Hieronder kunnen mogelijke afspraakmomenten ingepland worden en geplande afspraken bekeken worden.</p>
 				<a [routerLink]="['/kalender']" fragment="calendar"
@@ -18,7 +19,7 @@
 	</div>
 </div>
 
-<div class="meerinfo hidden">
+<div class="meerinfo onzichtbaar">
 	<div class="top">
 		<a (click)="close()" ><i class="fa fa-times close"></i></a>
 		<h3 *ngIf="naam" class="naam">{{naam}}</h3>

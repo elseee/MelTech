@@ -685,14 +685,14 @@ var MapsComponent = /** @class */ (function () {
 /***/ "./src/app/my/my-component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".fc-toolbar .fc-left h2 {\n    font-size: 18px;\n    padding-top: 10px;\n}\n\n.header {\n\tcolor: #fff;\n\tbackground-color: #333;\n\tmargin-bottom: 40px;\n\tpadding-top: 60px;\n\tpadding: 60px 0 80px;\n}\n\n.container {\n\twidth: 100vw;\n\tmargin-bottom: 60px;\n}\n\n.header a {\n\tcolor: #fff;\n    font-size: 25px;\n    text-align: center;\n}\n\n.header .fa-chevron-down {\n\tdisplay: block;\n    margin: auto;\n    position: relative;\n    -webkit-animation: bounce 2s infinite;\n    animation: bounce 2s infinite;\n}\n\n@-webkit-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n​\n\n@-moz-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n@keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n/*Meer info event*/\n\n.meerinfo {\n    width: 245px;\n    background-color: #f4f4f4;\n    border-radius: 5px;\n    position: absolute;\n    display: block;\n    z-index: 999;\n    -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);\n            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);\n}\n\n.meerinfo::after{\n    content: '';\n    position: absolute;\n    left: 20px;\n    top: -10px;\n    width: 0;\n    height: 0;\n    border-left: 10px solid transparent;\n    border-right: 10px solid transparent;\n    border-bottom: 10px solid #333;\n    clear: both;\n}\n\n.meerinfo .top {\n    width: 245px;\n    position: relative;\n    border-top-left-radius: 5px;\n    border-top-right-radius: 5px;\n    padding: 10px 20px 5px;    \n    background-color: #333;\n    color: #fff;\n    padding-bottom: 13px;\n}\n\n.meerinfo .bottom {\n    padding: 20px;\n}\n\n.meerinfo .row {\n    margin-bottom: 10px;\n}\n\n.meerinfo .tijden span {\n    font-size: 12px;\n}\n\n.row .fa-clock, .row .fa-address-book {\n    font-size: 25px;\n    margin-top: 7px;\n    display: block;\n    color: #555;\n}\n\n.meerinfo .close {\n    color: #fff;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    font-size: 16px;\n}\n\n.meerinfo h3 {\n    margin: 5px 0;\n    font-size: 18px;\n    margin-bottom: 0;\n}\n\n.meerinfo .probleem {\n    margin: 0;\n    font-size: 16px;\n}\n\n.meerinfo .opmerking {\n    margin-bottom: 0;\n    margin-top: 10px;\n    font-size: 13px;\n}"
+module.exports = ".fc-toolbar .fc-left h2 {\n    font-size: 18px;\n    padding-top: 10px;\n}\n\n.header {\n\tcolor: #fff;\n\tbackground-color: #333;\n\tmargin-bottom: 40px;\n\tpadding-top: 60px;\n\tpadding: 60px 0 80px;\n}\n\n.header .loguit {\n    font-size: 15px;\n    position: relative;\n    top: -20px;\n    left: 175%;\n    cursor: pointer;\n}\n\n.header .loguit:hover .fa-sign-out-alt {\n    -webkit-transition: all 0.2s; /* Safari */\n    transition: all 0.2s;    \n    margin-left: 3px;\n}\n\n.container {\n\twidth: 100vw;\n\tmargin-bottom: 60px;\n}\n\n.header a {\n\tcolor: #fff;\n    font-size: 25px;\n    text-align: center;\n}\n\n.header .fa-chevron-down {\n\tdisplay: block;\n    margin: auto;\n    position: relative;\n    -webkit-animation: bounce 2s infinite;\n    animation: bounce 2s infinite;\n}\n\n@-webkit-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n​\n\n@-moz-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n@keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n/*Meer info event*/\n\n.meerinfo {\n    width: 245px;\n    background-color: #f4f4f4;\n    border-radius: 5px;\n    position: absolute;\n    display: block;\n    z-index: 999;\n    -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);\n            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);\n    visibility: visible;\n    -webkit-transition: visibility 0s, opacity 0.4s;\n    transition: visibility 0s, opacity 0.4s;\n}\n\n.onzichtbaar {\n    visibility: hidden;\n    opacity: 0;\n}\n\n.meerinfo::after{\n    content: '';\n    position: absolute;\n    left: 20px;\n    top: -10px;\n    width: 0;\n    height: 0;\n    border-left: 10px solid transparent;\n    border-right: 10px solid transparent;\n    border-bottom: 10px solid #333;\n    clear: both;\n}\n\n.meerinfo .top {\n    width: 245px;\n    position: relative;\n    border-top-left-radius: 5px;\n    border-top-right-radius: 5px;\n    padding: 10px 20px 5px;    \n    background-color: #333;\n    color: #fff;\n    padding-bottom: 13px;\n}\n\n.meerinfo .bottom {\n    padding: 20px;\n}\n\n.meerinfo .row {\n    margin-bottom: 10px;\n}\n\n.meerinfo .tijden span {\n    font-size: 12px;\n}\n\n.row .fa-clock, .row .fa-address-book {\n    font-size: 25px;\n    margin-top: 7px;\n    display: block;\n    color: #555;\n}\n\n.meerinfo .close {\n    color: #fff;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    font-size: 16px;\n}\n\n.meerinfo h3 {\n    margin: 5px 0;\n    font-size: 18px;\n    margin-bottom: 0;\n}\n\n.meerinfo .probleem {\n    margin: 0;\n    font-size: 16px;\n}\n\n.meerinfo .opmerking {\n    margin-bottom: 0;\n    margin-top: 10px;\n    font-size: 13px;\n}\n\n"
 
 /***/ }),
 
 /***/ "./src/app/my/my-component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"permission\">\n\t<div class=\"container\">\n\t\t<div class=\"row header\">\n\t\t\t<div class=\"col-md-4 col-md-offset-4\">\n\t\t\t\t<h1>Welkom {{user}}!</h1>\n\t\t\t\t<p>Hieronder kunnen mogelijke afspraakmomenten ingepland worden en geplande afspraken bekeken worden.</p>\n\t\t\t\t<a [routerLink]=\"['/kalender']\" fragment=\"calendar\"\n\t\t\t\t(click)=\"goToCalendar('calendar')\">\n\t\t\t\t\t<i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8 col-md-offset-2\">\n\t\t\t\t<angular2-fullcalendar id=\"calendar\" [options]=\"calendarOptions\"></angular2-fullcalendar>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<div class=\"meerinfo hidden\">\n\t<div class=\"top\">\n\t\t<a (click)=\"close()\" ><i class=\"fa fa-times close\"></i></a>\n\t\t<h3 *ngIf=\"naam\" class=\"naam\">{{naam}}</h3>\n\t\t<p *ngIf=\"probleem\" class=\"probleem\">{{probleem}}</p>\n\t</div>\n\t<div class=\"bottom\">\n\t\t<div class=\"tijden row\">\n\t\t\t<div class=\"col-xs-2\">\n\t\t\t\t<i class=\"far fa-clock\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-8\">\n\t\t\t\t{{dag}} <br />\n\t\t\t\t<span>{{start}} tot {{eind}}</span>\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\" *ngIf=\"email\">\n\t\t\t<div class=\"col-xs-2\">\n\t\t\t\t<i class=\"far fa-address-book\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-8\">\n\t\t\t\t<a *ngIf=\"email\" class=\"email\" href=\"mailto:lisadevries@gmail.com\" target=\"_top\">{{email}}</a><br />\n\t\t\t\t<span *ngIf=\"tel\" class=\"tel\">{{tel}}</span>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t\n\t\t<p *ngIf=\"opmerking\" class=\"opmerking\">{{opmerking}}</p>\n\t</div>\n</div>\n"
+module.exports = "<div *ngIf=\"permission\">\n\t<div class=\"container\">\n\t\t<div class=\"row header\">\n\t\t\t<div class=\"col-xs-4 col-xs-offset-4\">\n\t\t\t\t<a class=\"loguit\" (click)=\"logUit()\">Log uit <i class=\"fas fa-sign-out-alt\"></i></a>\n\t\t\t\t<h1>Welkom {{user}}!</h1>\n\t\t\t\t<p>Hieronder kunnen mogelijke afspraakmomenten ingepland worden en geplande afspraken bekeken worden.</p>\n\t\t\t\t<a [routerLink]=\"['/kalender']\" fragment=\"calendar\"\n\t\t\t\t(click)=\"goToCalendar('calendar')\">\n\t\t\t\t\t<i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8 col-md-offset-2\">\n\t\t\t\t<angular2-fullcalendar id=\"calendar\" [options]=\"calendarOptions\"></angular2-fullcalendar>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<div class=\"meerinfo onzichtbaar\">\n\t<div class=\"top\">\n\t\t<a (click)=\"close()\" ><i class=\"fa fa-times close\"></i></a>\n\t\t<h3 *ngIf=\"naam\" class=\"naam\">{{naam}}</h3>\n\t\t<p *ngIf=\"probleem\" class=\"probleem\">{{probleem}}</p>\n\t</div>\n\t<div class=\"bottom\">\n\t\t<div class=\"tijden row\">\n\t\t\t<div class=\"col-xs-2\">\n\t\t\t\t<i class=\"far fa-clock\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-8\">\n\t\t\t\t{{dag}} <br />\n\t\t\t\t<span>{{start}} tot {{eind}}</span>\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\" *ngIf=\"email\">\n\t\t\t<div class=\"col-xs-2\">\n\t\t\t\t<i class=\"far fa-address-book\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-8\">\n\t\t\t\t<a *ngIf=\"email\" class=\"email\" href=\"mailto:lisadevries@gmail.com\" target=\"_top\">{{email}}</a><br />\n\t\t\t\t<span *ngIf=\"tel\" class=\"tel\">{{tel}}</span>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t\n\t\t<p *ngIf=\"opmerking\" class=\"opmerking\">{{opmerking}}</p>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -747,6 +747,11 @@ var MyComponent = /** @class */ (function () {
     MyComponent.prototype.afspraakInDatabase = function (startTijd) {
         this.afsprakenService.addAfspraak(startTijd).subscribe(function (startTijd) { console.log(startTijd); });
     };
+    //logout 
+    MyComponent.prototype.logUit = function () {
+        sessionStorage.setItem('user', '');
+        this.router.navigate(['/admin']);
+    };
     //Get afspraken onload
     MyComponent.prototype.afsprakenInladen = function () {
         var _this = this;
@@ -796,7 +801,7 @@ var MyComponent = /** @class */ (function () {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     };
     MyComponent.prototype.close = function () {
-        __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').addClass('hidden');
+        __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').addClass('onzichtbaar');
     };
     MyComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -807,8 +812,8 @@ var MyComponent = /** @class */ (function () {
         this.calendarOptions = {
             defaultView: 'agendaWeek',
             nowIndicator: true,
-            minTime: "07:00:00",
-            maxTime: "22:00:00",
+            minTime: "08:00:00",
+            maxTime: "21:30:00",
             aspectRatio: 1.5,
             selectable: true,
             weekends: false,
@@ -855,19 +860,19 @@ var MyComponent = /** @class */ (function () {
                 var posY = jsEvent.pageY + 10;
                 var posX = jsEvent.pageX - 20;
                 __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo')
-                    .removeClass('hidden')
+                    .removeClass('onzichtbaar')
                     .css({ 'left': posX, 'top': posY });
             }
         };
         __WEBPACK_IMPORTED_MODULE_1_jquery__(window).click(function (event) {
-            if (__WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').hasClass('hidden')) {
+            if (__WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').hasClass('onzichtbaar')) {
             }
             else {
                 if (__WEBPACK_IMPORTED_MODULE_1_jquery__(event.target).is(".fc-title, .fc-event, .fc-event-container, .fc-content, .fc-time")) {
                     event.stopPropagation();
                 }
                 else {
-                    __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').addClass('hidden');
+                    __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').addClass('onzichtbaar');
                 }
             }
         });

@@ -48,6 +48,12 @@ export class MyComponent{
     	this.afsprakenService.addAfspraak(startTijd).subscribe((startTijd) => { console.log(startTijd) })
     }
 
+    //logout 
+    logUit() {
+    	sessionStorage.setItem('user', '');
+    	this.router.navigate(['/admin']);
+    }
+
     //Get afspraken onload
     afsprakenInladen() {
     	this.afsprakenService.getAfspraak().subscribe(
@@ -112,7 +118,7 @@ export class MyComponent{
 
 
 	close() {
-    	$('.meerinfo').addClass('hidden');
+    	$('.meerinfo').addClass('onzichtbaar');
     }
     
 
@@ -130,8 +136,8 @@ export class MyComponent{
         this.calendarOptions = {
 			defaultView: 'agendaWeek',
 			nowIndicator: true,
-			minTime: "07:00:00",
-			maxTime: "22:00:00",
+			minTime: "08:00:00",
+			maxTime: "21:30:00",
 			aspectRatio: 1.5,
 			selectable: true,
 			weekends: false,
@@ -186,20 +192,20 @@ export class MyComponent{
 			    let posX = jsEvent.pageX - 20;
 
 			    $('.meerinfo')
-			    	.removeClass('hidden')
+			    	.removeClass('onzichtbaar')
 			    	.css({'left': posX, 'top': posY});
 			}
     	}
 
     	$(window).click(function(event) {
-			if($('.meerinfo').hasClass('hidden')) {
+			if($('.meerinfo').hasClass('onzichtbaar')) {
 			}
 			else {
 				if ($(event.target).is(".fc-title, .fc-event, .fc-event-container, .fc-content, .fc-time")) {
 					event.stopPropagation();
 				}
 				else {
-					$('.meerinfo').addClass('hidden');
+					$('.meerinfo').addClass('onzichtbaar');
 				}
 			}
 		});

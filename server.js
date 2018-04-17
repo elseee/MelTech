@@ -35,6 +35,9 @@ app.post('/login', function(req, res) {
   user = req.body.username;
   password = req.body.password;
 
+  console.log(password);
+  console.log(user);
+
   var connection = getConnection();
   connection.connect();
 
