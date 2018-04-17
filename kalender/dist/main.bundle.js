@@ -796,7 +796,6 @@ var MyComponent = /** @class */ (function () {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     };
     MyComponent.prototype.close = function () {
-        console.log('in close');
         __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').addClass('hidden');
     };
     MyComponent.prototype.ngOnInit = function () {
@@ -860,6 +859,21 @@ var MyComponent = /** @class */ (function () {
                     .css({ 'left': posX, 'top': posY });
             }
         };
+        __WEBPACK_IMPORTED_MODULE_1_jquery__(window).click(function (event) {
+            if (__WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').hasClass('hidden')) {
+            }
+            else {
+                if (__WEBPACK_IMPORTED_MODULE_1_jquery__(event.target).is(".fc-title, .fc-event, .fc-event-container, .fc-content, .fc-time")) {
+                    event.stopPropagation();
+                }
+                else {
+                    __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').addClass('hidden');
+                }
+            }
+        });
+        __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').click(function (event) {
+            event.stopPropagation();
+        });
     };
     MyComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({

@@ -112,7 +112,6 @@ export class MyComponent{
 
 
 	close() {
-    	console.log('in close');
     	$('.meerinfo').addClass('hidden');
     }
     
@@ -191,6 +190,24 @@ export class MyComponent{
 			    	.css({'left': posX, 'top': posY});
 			}
     	}
+
+    	$(window).click(function(event) {
+			if($('.meerinfo').hasClass('hidden')) {
+			}
+			else {
+				if ($(event.target).is(".fc-title, .fc-event, .fc-event-container, .fc-content, .fc-time")) {
+					event.stopPropagation();
+				}
+				else {
+					$('.meerinfo').addClass('hidden');
+				}
+			}
+		});
+
+		$('.meerinfo').click(function(event){
+		    event.stopPropagation();
+		});
+
     }
 		
 
