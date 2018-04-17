@@ -1,7 +1,13 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');   
  
- form {
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ 	form {
+        font-family: 'GudeaBold', 'Arial Narrow', Arial, sans-serif;
+    }
+    form p {
+    	font-family: 'Gudea';
+    }
+    .radio label {
+    	font-family: 'Gudea';
     }
     h1, h3{
         text-align: center;
@@ -40,10 +46,14 @@
       margin: 3px;
     }
 
+    .keuze_tijd {
+    	padding: 0;
+    }
+
     .tijd {
     display: block;
     position: relative;
-    padding-left: 35px;
+    padding-left: 60px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -51,7 +61,6 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin: 10px;
 }
 
 .tijd {

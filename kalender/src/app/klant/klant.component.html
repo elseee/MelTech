@@ -9,12 +9,15 @@
         <br>
         <a (click)='getTijden()'>Klik hier</a>
         <h5>Selecteer een tijd</h5>
-        <div class="keuze_tijd col-md-8">
+        <div class="keuze_tijd col-md-8" *ngIf="tijden.length; else other_content">
           <label class="tijd" *ngFor="let tijd of tijden">
             <input type="radio" value="{{tijd}}" name="tijd">
             <span class="checkmark">{{tijd}}</span>
           </label>
         </div>
+        <ng-template #other_content>
+          <p>Geen tijden beschikbaar</p>
+        </ng-template>
         <br>
       </div>
       <div class="col-md-6">
@@ -23,24 +26,24 @@
           <div class="col-md-4">
             <div class="radio">
               <label>
-                <input type="radio" name="reden" value="reparatie">Reparatie
+                <input type="radio" name="reden" value="Reparatie">Reparatie
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="reden" value="bezichtiging" checked>Laptops bezichtigen
+                <input type="radio" name="reden" value="Laptops bezichtigen" checked>Laptops bezichtigen
               </label>
             </div>
           </div>
           <div class="col-md-3">
             <div class="radio">
               <label>
-                <input type="radio" name="reden" value="hulp">Computerhulp
+                <input type="radio" name="reden" value="Computerhulp">Computerhulp
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="reden" value="overig">Overig
+                <input type="radio" name="reden" value="Overig">Overig
               </label>
             </div>
           </div>
