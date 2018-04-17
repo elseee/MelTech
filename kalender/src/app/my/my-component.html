@@ -17,3 +17,35 @@
 		</div>
 	</div>
 </div>
+
+<div class="meerinfo hidden">
+	<div class="top">
+		<a (click)="close()" ><i class="fa fa-times close"></i></a>
+		<h3 *ngIf="naam" class="naam">{{naam}}</h3>
+		<p *ngIf="probleem" class="probleem">{{probleem}}</p>
+	</div>
+	<div class="bottom">
+		<div class="tijden row">
+			<div class="col-xs-2">
+				<i class="far fa-clock"></i>
+			</div>
+			<div class="col-xs-8">
+				{{dag}} <br />
+				<span>{{start}} tot {{eind}}</span>	
+			</div>
+		</div>
+		<div class="row" *ngIf="email">
+			<div class="col-xs-2">
+				<i class="far fa-address-book"></i>
+			</div>
+			<div class="col-xs-8">
+				<a *ngIf="email" class="email" href="mailto:lisadevries@gmail.com" target="_top">{{email}}</a><br />
+				<span *ngIf="tel" class="tel">{{tel}}</span>
+			</div>
+		</div>
+
+
+		
+		<p *ngIf="opmerking" class="opmerking">{{opmerking}}</p>
+	</div>
+</div>

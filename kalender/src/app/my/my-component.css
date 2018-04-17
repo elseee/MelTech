@@ -59,3 +59,83 @@
     50%	 {top: 25px;}
     100% {top: 25px;}
 }
+
+
+/*Meer info event*/
+.meerinfo {
+    width: 245px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    position: absolute;
+    display: block;
+    z-index: 999;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.meerinfo::after{
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #333;
+    clear: both;
+}
+
+.meerinfo .top {
+    width: 245px;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px 20px 5px;    
+    background-color: #333;
+    color: #fff;
+    padding-bottom: 13px;
+}
+
+.meerinfo .bottom {
+    padding: 20px;
+}
+
+.meerinfo .row {
+    margin-bottom: 10px;
+}
+
+.meerinfo .tijden span {
+    font-size: 12px;
+}
+
+.row .fa-clock, .row .fa-address-book {
+    font-size: 25px;
+    margin-top: 7px;
+    display: block;
+    color: #555;
+}
+
+.meerinfo .close {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 16px;
+}
+
+.meerinfo h3 {
+    margin: 5px 0;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.meerinfo .probleem {
+    margin: 0;
+    font-size: 16px;
+}
+
+.meerinfo .opmerking {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 13px;
+}

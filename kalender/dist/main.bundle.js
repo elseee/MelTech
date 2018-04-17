@@ -685,14 +685,14 @@ var MapsComponent = /** @class */ (function () {
 /***/ "./src/app/my/my-component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".fc-toolbar .fc-left h2 {\n    font-size: 18px;\n    padding-top: 10px;\n}\n\n.header {\n\tcolor: #fff;\n\tbackground-color: #333;\n\tmargin-bottom: 40px;\n\tpadding-top: 60px;\n\tpadding: 60px 0 80px;\n}\n\n.container {\n\twidth: 100vw;\n\tmargin-bottom: 60px;\n}\n\n.header a {\n\tcolor: #fff;\n    font-size: 25px;\n    text-align: center;\n}\n\n.header .fa-chevron-down {\n\tdisplay: block;\n    margin: auto;\n    position: relative;\n    -webkit-animation: bounce 2s infinite;\n    animation: bounce 2s infinite;\n}\n\n@-webkit-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n​\n\n@-moz-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n@keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}"
+module.exports = ".fc-toolbar .fc-left h2 {\n    font-size: 18px;\n    padding-top: 10px;\n}\n\n.header {\n\tcolor: #fff;\n\tbackground-color: #333;\n\tmargin-bottom: 40px;\n\tpadding-top: 60px;\n\tpadding: 60px 0 80px;\n}\n\n.container {\n\twidth: 100vw;\n\tmargin-bottom: 60px;\n}\n\n.header a {\n\tcolor: #fff;\n    font-size: 25px;\n    text-align: center;\n}\n\n.header .fa-chevron-down {\n\tdisplay: block;\n    margin: auto;\n    position: relative;\n    -webkit-animation: bounce 2s infinite;\n    animation: bounce 2s infinite;\n}\n\n@-webkit-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n​\n\n@-moz-keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n@keyframes bounce\n{\n    0%   {top: 25px;}\n    15%\t {top: 30px;}\n    30%\t {top: 25px;}\n    40%\t {top: 27px;}\n    50%\t {top: 25px;}\n    100% {top: 25px;}\n}\n\n/*Meer info event*/\n\n.meerinfo {\n    width: 245px;\n    background-color: #f4f4f4;\n    border-radius: 5px;\n    position: absolute;\n    display: block;\n    z-index: 999;\n    -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);\n            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);\n}\n\n.meerinfo::after{\n    content: '';\n    position: absolute;\n    left: 20px;\n    top: -10px;\n    width: 0;\n    height: 0;\n    border-left: 10px solid transparent;\n    border-right: 10px solid transparent;\n    border-bottom: 10px solid #333;\n    clear: both;\n}\n\n.meerinfo .top {\n    width: 245px;\n    position: relative;\n    border-top-left-radius: 5px;\n    border-top-right-radius: 5px;\n    padding: 10px 20px 5px;    \n    background-color: #333;\n    color: #fff;\n    padding-bottom: 13px;\n}\n\n.meerinfo .bottom {\n    padding: 20px;\n}\n\n.meerinfo .row {\n    margin-bottom: 10px;\n}\n\n.meerinfo .tijden span {\n    font-size: 12px;\n}\n\n.row .fa-clock, .row .fa-address-book {\n    font-size: 25px;\n    margin-top: 7px;\n    display: block;\n    color: #555;\n}\n\n.meerinfo .close {\n    color: #fff;\n    position: absolute;\n    top: 15px;\n    right: 15px;\n    font-size: 16px;\n}\n\n.meerinfo h3 {\n    margin: 5px 0;\n    font-size: 18px;\n    margin-bottom: 0;\n}\n\n.meerinfo .probleem {\n    margin: 0;\n    font-size: 16px;\n}\n\n.meerinfo .opmerking {\n    margin-bottom: 0;\n    margin-top: 10px;\n    font-size: 13px;\n}"
 
 /***/ }),
 
 /***/ "./src/app/my/my-component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"permission\">\n\t<div class=\"container\">\n\t\t<div class=\"row header\">\n\t\t\t<div class=\"col-md-4 col-md-offset-4\">\n\t\t\t\t<h1>Welkom {{user}}!</h1>\n\t\t\t\t<p>Hieronder kunnen mogelijke afspraakmomenten ingepland worden en geplande afspraken bekeken worden.</p>\n\t\t\t\t<a [routerLink]=\"['/kalender']\" fragment=\"calendar\"\n\t\t\t\t(click)=\"goToCalendar('calendar')\">\n\t\t\t\t\t<i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8 col-md-offset-2\">\n\t\t\t\t<angular2-fullcalendar id=\"calendar\" [options]=\"calendarOptions\"></angular2-fullcalendar>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n"
+module.exports = "<div *ngIf=\"permission\">\n\t<div class=\"container\">\n\t\t<div class=\"row header\">\n\t\t\t<div class=\"col-md-4 col-md-offset-4\">\n\t\t\t\t<h1>Welkom {{user}}!</h1>\n\t\t\t\t<p>Hieronder kunnen mogelijke afspraakmomenten ingepland worden en geplande afspraken bekeken worden.</p>\n\t\t\t\t<a [routerLink]=\"['/kalender']\" fragment=\"calendar\"\n\t\t\t\t(click)=\"goToCalendar('calendar')\">\n\t\t\t\t\t<i class=\"fa fa-chevron-down\" aria-hidden=\"true\"></i>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8 col-md-offset-2\">\n\t\t\t\t<angular2-fullcalendar id=\"calendar\" [options]=\"calendarOptions\"></angular2-fullcalendar>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<div class=\"meerinfo hidden\">\n\t<div class=\"top\">\n\t\t<a (click)=\"close()\" ><i class=\"fa fa-times close\"></i></a>\n\t\t<h3 *ngIf=\"naam\" class=\"naam\">{{naam}}</h3>\n\t\t<p *ngIf=\"probleem\" class=\"probleem\">{{probleem}}</p>\n\t</div>\n\t<div class=\"bottom\">\n\t\t<div class=\"tijden row\">\n\t\t\t<div class=\"col-xs-2\">\n\t\t\t\t<i class=\"far fa-clock\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-8\">\n\t\t\t\t{{dag}} <br />\n\t\t\t\t<span>{{start}} tot {{eind}}</span>\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\" *ngIf=\"email\">\n\t\t\t<div class=\"col-xs-2\">\n\t\t\t\t<i class=\"far fa-address-book\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-8\">\n\t\t\t\t<a *ngIf=\"email\" class=\"email\" href=\"mailto:lisadevries@gmail.com\" target=\"_top\">{{email}}</a><br />\n\t\t\t\t<span *ngIf=\"tel\" class=\"tel\">{{tel}}</span>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t\n\t\t<p *ngIf=\"opmerking\" class=\"opmerking\">{{opmerking}}</p>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -723,10 +723,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MyComponent = /** @class */ (function () {
-    function MyComponent(afsprakenService, router, route) {
+    function MyComponent(afsprakenService, router, route, cdRef) {
         this.afsprakenService = afsprakenService;
         this.router = router;
         this.route = route;
+        this.cdRef = cdRef;
         //Check if user loggedin
         this.permission = true;
         //check user
@@ -767,7 +768,12 @@ var MyComponent = /** @class */ (function () {
                     end: end,
                     start: start,
                     allDay: false,
-                    className: 'afspraak'
+                    className: 'afspraak',
+                    klant: afsprTijd[i].naam,
+                    klantTel: afsprTijd[i].tel,
+                    klantEmail: afsprTijd[i].email,
+                    klantProbleem: afsprTijd[i].probleem,
+                    klantOpmerking: afsprTijd[i].opmerkingen
                 };
                 this.existingEvents.push(event_1);
             }
@@ -788,9 +794,10 @@ var MyComponent = /** @class */ (function () {
     };
     MyComponent.prototype.goToCalendar = function (id) {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        // $('html, body').animate({
-        //     scrollTop: this.elem.offsetTop
-        // }, 1000);
+    };
+    MyComponent.prototype.close = function () {
+        console.log('in close');
+        __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo').addClass('hidden');
     };
     MyComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -819,10 +826,11 @@ var MyComponent = /** @class */ (function () {
                         start: startDate,
                         end: end,
                         allDay: false,
-                        customer: '',
-                        customerTel: '',
-                        customerEmail: '',
-                        customerProblem: ''
+                        klant: '',
+                        klantTel: '',
+                        klantEmail: '',
+                        klantProbleem: '',
+                        klantOpmerking: ''
                     });
                     self.afspraakInDatabase(startDate.local().format());
                     startDate = __WEBPACK_IMPORTED_MODULE_2_moment__(end);
@@ -834,9 +842,24 @@ var MyComponent = /** @class */ (function () {
                     self.afspraakVerwijderen(event.start.local().format());
                     __WEBPACK_IMPORTED_MODULE_1_jquery__('#calendar').fullCalendar('removeEvents', event._id);
                 });
+            },
+            eventClick: function (calEvent, jsEvent, view, element) {
+                self.naam = calEvent.title;
+                self.email = calEvent.klantEmail;
+                self.tel = calEvent.klantTel;
+                self.probleem = calEvent.klantProbleem;
+                self.opmerking = calEvent.klantOpmerking;
+                self.dag = calEvent.start.format('dddd, MMMM YY');
+                self.start = calEvent.start.format('HH:mm');
+                self.eind = calEvent.end.format('HH:mm');
+                self.cdRef.detectChanges();
+                var posY = jsEvent.pageY + 10;
+                var posX = jsEvent.pageX - 20;
+                __WEBPACK_IMPORTED_MODULE_1_jquery__('.meerinfo')
+                    .removeClass('hidden')
+                    .css({ 'left': posX, 'top': posY });
             }
         };
-        // console.log($('#calendar').fullCalendar('clientEvents', 'ingepland')); 
     };
     MyComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -844,7 +867,7 @@ var MyComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/my/my-component.html"),
             styles: [__webpack_require__("./src/app/my/my-component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__afspraken_service__["a" /* AfsprakenService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__afspraken_service__["a" /* AfsprakenService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]])
     ], MyComponent);
     return MyComponent;
 }());

@@ -84,7 +84,7 @@ app.get('/get', function(req, res) {
 
   connection.query('SELECT * from afspraken', function(err, rows, fields) {
     if (!err) {
-      console.log(JSON.stringify(rows));
+      // console.log(JSON.stringify(rows));
       res.send(JSON.stringify(rows));
     }
     else {

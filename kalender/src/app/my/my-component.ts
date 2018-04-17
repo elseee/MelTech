@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import {MomentModule} from 'angular2-moment';
 import * as $ from 'jquery';
 import * as moment from 'moment';
@@ -13,7 +13,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class MyComponent{
 
-    constructor ( private afsprakenService: AfsprakenService, private router: Router, private route: ActivatedRoute ) { 
+    constructor ( private afsprakenService: AfsprakenService, private router: Router, private route: ActivatedRoute, private cdRef:ChangeDetectorRef ) { 
     	
     }
 
@@ -34,6 +34,14 @@ export class MyComponent{
 
     //check user
     user: string = sessionStorage.getItem('user');
+    naam: string ;
+    email: string;
+    tel: string;
+    probleem: string;
+    opmerking: string;
+    dag: string;
+    start: string;
+    eind: string;
 
     //Add afspraken to database
     afspraakInDatabase(startTijd) {
@@ -67,7 +75,12 @@ export class MyComponent{
 	    			end: end,
 	    			start: start,
 	    			allDay: false,
-	    			className: 'afspraak'
+	    			className: 'afspraak',
+	    			klant: afsprTijd[i].naam,
+	    			klantTel: afsprTijd[i].tel,
+	    			klantEmail: afsprTijd[i].email,
+					klantProbleem: afsprTijd[i].probleem,
+					klantOpmerking: afsprTijd[i].opmerkingen
 	    		}
 
 	    		this.existingEvents.push(event);
@@ -95,10 +108,13 @@ export class MyComponent{
 
 	goToCalendar(id) {
         document.getElementById(id).scrollIntoView({behavior: 'smooth'});
-        // $('html, body').animate({
-        //     scrollTop: this.elem.offsetTop
-        // }, 1000);
-	}
+	}    
+
+
+	close() {
+    	console.log('in close');
+    	$('.meerinfo').addClass('hidden');
+    }
     
 
     calendarOptions:Object 
@@ -135,10 +151,11 @@ export class MyComponent{
 						start: startDate,
 						end: end,
 						allDay: false,
-						customer: '',
-						customerTel: '',
-						customerEmail: '',
-						customerProblem: ''
+						klant: '',
+						klantTel: '',
+						klantEmail: '',
+						klantProbleem: '',
+						klantOpmerking: ''
 			        });
 
 			        self.afspraakInDatabase(startDate.local().format());	 
@@ -152,13 +169,30 @@ export class MyComponent{
 	            	self.afspraakVerwijderen(event.start.local().format());
 	                $('#calendar').fullCalendar('removeEvents',event._id);
 	            });
-	        }
+	        }, 
+	        eventClick: function(calEvent, jsEvent, view, element) {
+
+			    self.naam = calEvent.title;
+			    self.email = calEvent.klantEmail;
+			    self.tel = calEvent.klantTel;
+			    self.probleem = calEvent.klantProbleem;
+			    self.opmerking = calEvent.klantOpmerking;
+			    self.dag = calEvent.start.format('dddd, MMMM YY'); 
+			    self.start = calEvent.start.format('HH:mm');
+			    self.eind = calEvent.end.format('HH:mm');
+
+			    self.cdRef.detectChanges();
+
+			    let posY = jsEvent.pageY + 10;
+			    let posX = jsEvent.pageX - 20;
+
+			    $('.meerinfo')
+			    	.removeClass('hidden')
+			    	.css({'left': posX, 'top': posY});
+			}
     	}
-
-    	// console.log($('#calendar').fullCalendar('clientEvents', 'ingepland')); 
-
-    
     }
+		
 
-    
+      
 }
