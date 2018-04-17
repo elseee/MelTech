@@ -31,4 +31,6 @@ export class AfsprakenService {
   	return this.http.post('/delete', {afspraak: afspraak});
   }
 
+
+
 }
