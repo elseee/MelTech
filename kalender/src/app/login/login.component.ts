@@ -37,20 +37,20 @@ export class LoginComponent implements OnInit {
   error = '';
 
 	getInlog() {
-	let password = this.password;
-	let username = this.username;
+		let password = this.password;
+		let username = this.username;
 
-	this.afsprakenService.logIn(password, username).subscribe(
-			(response) => { 
-				console.log(response);
-				sessionStorage.setItem('user', 'admin');
-				this.router.navigate(['/kalender']);
-			},
-			(error) => { 
-				console.log(error.error);
-				this.error = 'Uw wachtwoord en/of gebruikersnaam zijn onjuist.';
-			} 
-		);
+		this.afsprakenService.logIn(password, username).subscribe(
+				(response) => { 
+					console.log(response);
+					sessionStorage.setItem('user', 'admin');
+					this.router.navigate(['/kalender']);
+				},
+				(error) => { 
+					console.log(error.error);
+					this.error = 'Uw wachtwoord en/of gebruikersnaam zijn onjuist.';
+				} 
+			);
 	}
 
 	canActivate() {

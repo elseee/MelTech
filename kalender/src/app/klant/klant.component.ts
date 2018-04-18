@@ -17,6 +17,7 @@ export class KlantComponent implements OnInit {
     setTimeout(function () {
       self.getTijden();
     }, 2000);
+    
   }
 
   tijden;
