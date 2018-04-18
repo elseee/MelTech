@@ -354,6 +354,7 @@ var AfsprakenService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__my_my_component__ = __webpack_require__("./src/app/my/my-component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__klant_klant_component__ = __webpack_require__("./src/app/klant/klant.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__succes_succes_component__ = __webpack_require__("./src/app/succes/succes.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -365,11 +366,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: '', redirectTo: '/klant', pathMatch: 'full' },
     { path: 'klant', component: __WEBPACK_IMPORTED_MODULE_4__klant_klant_component__["a" /* KlantComponent */] },
     { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_2__login_login_component__["a" /* LoginComponent */] },
-    { path: 'kalender', component: __WEBPACK_IMPORTED_MODULE_3__my_my_component__["a" /* MyComponent */] }
+    { path: 'kalender', component: __WEBPACK_IMPORTED_MODULE_3__my_my_component__["a" /* MyComponent */] },
+    { path: 'succes', component: __WEBPACK_IMPORTED_MODULE_5__succes_succes_component__["a" /* SuccesComponent */] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -384,6 +387,7 @@ var AppRoutingModule = /** @class */ (function () {
     return AppRoutingModule;
 }());
 
+// hier moet straks de verwijzing ook naar de succes pagina van het formulier komen te staan 
 
 
 /***/ }),
@@ -442,21 +446,25 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__afspraken_service__ = __webpack_require__("./src/app/afspraken.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ap_angular2_fullcalendar_src_calendar_calendar__ = __webpack_require__("./node_modules/ap-angular2-fullcalendar/src/calendar/calendar.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ap_angular2_fullcalendar_src_calendar_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_ap_angular2_fullcalendar_src_calendar_calendar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__my_my_component__ = __webpack_require__("./src/app/my/my-component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__klant_klant_component__ = __webpack_require__("./src/app/klant/klant.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__maps_maps_component__ = __webpack_require__("./src/app/maps/maps.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mydatepicker__ = __webpack_require__("./node_modules/mydatepicker/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__afspraken_service__ = __webpack_require__("./src/app/afspraken.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ap_angular2_fullcalendar_src_calendar_calendar__ = __webpack_require__("./node_modules/ap-angular2-fullcalendar/src/calendar/calendar.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ap_angular2_fullcalendar_src_calendar_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ap_angular2_fullcalendar_src_calendar_calendar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__my_my_component__ = __webpack_require__("./src/app/my/my-component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__klant_klant_component__ = __webpack_require__("./src/app/klant/klant.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__maps_maps_component__ = __webpack_require__("./src/app/maps/maps.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__succes_succes_component__ = __webpack_require__("./src/app/succes/succes.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -475,23 +483,25 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_5_ap_angular2_fullcalendar_src_calendar_calendar__["CalendarComponent"],
-                __WEBPACK_IMPORTED_MODULE_7__my_my_component__["a" /* MyComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__klant_klant_component__["a" /* KlantComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__maps_maps_component__["a" /* MapsComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_6_ap_angular2_fullcalendar_src_calendar_calendar__["CalendarComponent"],
+                __WEBPACK_IMPORTED_MODULE_8__my_my_component__["a" /* MyComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__klant_klant_component__["a" /* KlantComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__maps_maps_component__["a" /* MapsComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__succes_succes_component__["a" /* SuccesComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_9__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
+                __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_4_mydatepicker__["MyDatePickerModule"]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_4__afspraken_service__["a" /* AfsprakenService */]
+                __WEBPACK_IMPORTED_MODULE_5__afspraken_service__["a" /* AfsprakenService */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -504,14 +514,14 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/klant/klant.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');   \n \n \tform {\n        font-family: 'GudeaBold', 'Arial Narrow', Arial, sans-serif;\n    }   \n \n \tform p {\n    \tfont-family: 'Gudea';\n    }   \n \n \t.radio label {\n    \tfont-family: 'Gudea';\n    }   \n \n \th1, h3{\n        text-align: center;\n        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;\n    }   \n \n \tinput, textarea {\n      background-color: #F4F4F4;\n      width: 380px;\n      border-radius: 3px;\n\t  border: 2px solid #F4F4F4;\n\t  padding: 7px;\n    }   \n \n \tbutton {\n      background-color: #4ABDAC;\n      border-radius: 3px;\n      border: 2px solid #4ABDAC;\n      color: white;\n      font-size: 16px;\n\t}   \n \n \t.opmerkingen {\n\t\theight: 100px;\n\t}   \n \n \tbutton:hover{\n      background-color: #207164;\n      border-radius: 3px;\n      border: 2px solid #207164;\n    }   \n \n \t#datepicker {\n      background-color: white;\n    }   \n \n \t.keuze_tijd button{\n      margin: 3px;\n    }   \n \n \t.keuze_tijd {\n    \tpadding: 0;\n    }   \n \n \t.tijd {\n    display: block;\n    position: relative;\n    padding-left: 60px;\n    margin-bottom: 12px;\n    cursor: pointer;\n    font-size: 22px;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n}   \n \n \t.tijd {\n  display: inline;\n}   \n \n \t/* Hide the browser's default radio button */   \n \n \t.tijd input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n}   \n \n \t/* Create a custom radio button */   \n \n \t.checkmark {\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 20px;\n    width: 45px;\n    background-color: #4ABDAC;\n    border-radius: 10%;\n    text-align: center;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 13px;\n}   \n \n \t.tijd:hover input ~ .checkmark {\n    background-color: #207164;\n}   \n \n \t/* When the radio button is checked, add a blue background */   \n \n \t.tijd input:checked ~ .checkmark {\n    background-color: #207164;\n}   \n \n \t/* Create the indicator (the dot/circle - hidden when not checked) */   \n \n \t.checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}   \n \n \t/* Show the indicator (dot/circle) when checked */   \n \n \t.tijd input:checked ~ .checkmark:after {\n    display: block;\n}   \n \n \t/* Style the indicator (dot/circle) */   \n \n \t.tijd .checkmark:after {\n \ttop: 9px;\n\tleft: 9px;\n\twidth: 8px;\n\theight: 8px;\n}   \n \n \t.tijd .checkmark{\n\t  text-align: center;\n    color: white;\n    padding-top: 2px;\n}   \n \n \t.menu{\n\ttext-align: center;\n\tpadding-top: 25px;\n\tmargin-bottom:200px;\n}   \n \n \t.menu img{\n\topacity: 0.4;\n\tmargin: 20px auto;\n}   \n \n \t.menu h1{\n\tmargin-top:0;\n\tfont: normal 32px/1.5 'Open Sans', sans-serif;\n\tcolor: #3F71AE;\n\tpadding-bottom: 16px;\n}   \n \n \t.menu h2{\n\tcolor: #F05283;\n}   \n \n \t.menu h2 a{\n\tcolor:inherit;\n\ttext-decoration: none;\n\tdisplay: inline-block;\n\tborder: 1px solid #F05283;\n\tpadding: 10px 15px;\n\tborder-radius: 3px;\n\tfont: bold 14px/1 'Open Sans', sans-serif;\n\ttext-transform: uppercase;\n}   \n \n \t.menu h2 a:hover{\n\tbackground-color:#F05283;\n\t-webkit-transition:0.2s;\n\ttransition:0.2s;\n\tcolor:#fff;\n}   \n \n \t.menu ul {\n\tmax-width: 600px;\n\tmargin: 60px auto 0;\n}   \n \n \t.menu ul a{\n\ttext-decoration: none;\n\tcolor: #FFF;\n\ttext-align: left;\n\tbackground-color: #B9C1CA;\n\tpadding: 10px 16px;\n\tborder-radius: 2px;\n\topacity: 0.8;\n\tfont-size: 16px;\n\tdisplay: inline-block;\n\tmargin: 4px;\n\tline-height: 1;\n\toutline: none;\n\n\t-webkit-transition: 0.2s ease;\n\n\ttransition: 0.2s ease;\n}   \n \n \t.menu ul li a.active{\n\tbackground-color: #66B650;\n\tpointer-events: none;\n}   \n \n \t.menu ul li a:hover {\n\topacity: 1;\n}   \n \n \t.menu ul{\n\tlist-style: none;\n\tpadding: 0;\n}   \n \n \t.menu ul li{\n\tdisplay: inline-block;\n}   \n \n \t@media (max-height:800px){\n\t.menu { padding-top:40px; }\n}   \n \n \t/* -- Demo ads -- */   \n \n \t@media (max-width: 1200px) {\n\t#bsaHolder{ display:none;}\n}   \n \n \t/* -- Link to Tutorialzine -- */   \n \n \t.tz-link{\n\ttext-decoration: none;\n\tcolor: #fff !important;\n\tfont: bold 36px Arial,Helvetica,sans-serif !important;\n}   \n \n \t.tz-link span{\n\tcolor: #da431c;\n}   \n \n \t.header-fixed {\n\tbackground-color:#292c2f;\n\t-webkit-box-shadow:0 1px 1px #ccc;\n\t        box-shadow:0 1px 1px #ccc;\n\tpadding: 20px 40px;\n\theight: 80px;\n\tcolor: #ffffff;\n\t-webkit-box-sizing: border-box;\n\t        box-sizing: border-box;\n\ttop:-100px;\n\n\t-webkit-transition:top 0.3s;\n\ttransition:top 0.3s;\n}   \n \n \t.header-fixed .header-limiter {\n\tmax-width: 1200px;\n\ttext-align: center;\n\tmargin: 0 auto;\n}   \n \n \t/*\tThe header placeholder. It is displayed when the header is fixed to the top of the\n\tbrowser window, in order to prevent the content of the page from jumping up. */   \n \n \t.header-fixed-placeholder{\n\theight: 80px;\n\tdisplay: none;\n}   \n \n \t/* Logo */   \n \n \t.header-fixed .header-limiter h1 {\n\tfloat: left;\n\tfont: normal 28px Cookie, Arial, Helvetica, sans-serif;\n\tline-height: 40px;\n\tmargin: 0;\n}   \n \n \t.header-fixed .header-limiter h1 span {\n\tcolor: #5383d3;\n}   \n \n \t/* The navigation links */   \n \n \t.header-fixed .header-limiter a {\n\tcolor: #ffffff;\n\ttext-decoration: none;\n}   \n \n \t.header-fixed .header-limiter nav {\n\tfont:16px Arial, Helvetica, sans-serif;\n\tline-height: 40px;\n\tfloat: right;\n}   \n \n \t.header-fixed .header-limiter nav a{\n\tdisplay: inline-block;\n\tpadding: 0 5px;\n\ttext-decoration:none;\n\tcolor: #ffffff;\n\topacity: 0.9;\n}   \n \n \t.header-fixed .header-limiter nav a:hover{\n\topacity: 1;\n}   \n \n \t.header-fixed .header-limiter nav a.selected {\n\tcolor: #608bd2;\n\tpointer-events: none;\n\topacity: 1;\n}   \n \n \t/* Fixed version of the header */   \n \n \tbody.fixed .header-fixed {\n\tpadding: 10px 40px;\n\theight: 50px;\n\tposition: fixed;\n\twidth: 100%;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 1;\n}   \n \n \tbody.fixed .header-fixed-placeholder {\n\tdisplay: block;\n}   \n \n \tbody.fixed .header-fixed .header-limiter h1 {\n\tfont-size: 24px;\n\tline-height: 30px;\n}   \n \n \tbody.fixed .header-fixed .header-limiter nav {\n\tline-height: 28px;\n\tfont-size: 13px;\n}   \n \n \t/* Making the header responsive */   \n \n \t@media all and (max-width: 600px) {\n\n\t.header-fixed {\n\t\tpadding: 20px 0;\n\t\theight: 75px;\n\t}\n\n\t.header-fixed .header-limiter h1 {\n\t\tfloat: none;\n\t\tmargin: -8px 0 10px;\n\t\ttext-align: center;\n\t\tfont-size: 24px;\n\t\tline-height: 1;\n\t}\n\n\t.header-fixed .header-limiter nav {\n\t\tline-height: 1;\n\t\tfloat:none;\n\t}\n\n\t.header-fixed .header-limiter nav a {\n\t\tfont-size: 13px;\n\t}\n\n\tbody.fixed .header-fixed {\n\t\tdisplay: none;\n\t}\n\n}"
+module.exports = "@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');   \n \n \tform {\n        font-family: 'GudeaBold', 'Arial Narrow', Arial, sans-serif;\n    }   \n \n \tform p {\n    \tfont-family: 'Gudea';\n    }   \n \n \t.radio label {\n    \tfont-family: 'Gudea';\n    }   \n \n \th1, h3{\n        text-align: center;\n        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;\n    }   \n \n \tinput, textarea {\n      background-color: #F4F4F4;\n      width: 380px;\n      border-radius: 3px;\n\t  border: 2px solid #F4F4F4;\n\t  padding: 7px;\n    }   \n \n \tbutton {\n      background-color: #4ABDAC;\n      border-radius: 3px;\n      border: 2px solid #4ABDAC;\n      color: white;\n      font-size: 16px;\n\t}   \n \n \t.opmerkingen {\n\t\theight: 100px;\n\t}   \n \n \tbutton:hover{\n      background-color: #207164;\n      border-radius: 3px;\n      border: 2px solid #207164;\n    }   \n \n \t.keuze_tijd button{\n      margin: 3px;\n    }   \n \n \t.keuze_tijd {\n    \tpadding: 0;\n    }   \n \n \t.tijd {\n    display: block;\n    position: relative;\n    padding-left: 60px;\n    margin-bottom: 12px;\n    cursor: pointer;\n    font-size: 22px;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n}   \n \n \t.tijd {\n  display: inline;\n}   \n \n \t/* Hide the browser's default radio button */   \n \n \t.tijd input {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n}   \n \n \t/* Create a custom radio button */   \n \n \t.checkmark {\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 20px;\n    width: 45px;\n    background-color: #4ABDAC;\n    border-radius: 10%;\n    text-align: center;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 13px;\n}   \n \n \t.tijd:hover input ~ .checkmark {\n    background-color: #207164;\n}   \n \n \t/* When the radio button is checked, add a blue background */   \n \n \t.tijd input:checked ~ .checkmark {\n    background-color: #207164;\n}   \n \n \t/* Create the indicator (the dot/circle - hidden when not checked) */   \n \n \t.checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}   \n \n \t/* Show the indicator (dot/circle) when checked */   \n \n \t.tijd input:checked ~ .checkmark:after {\n    display: block;\n}   \n \n \t/* Style the indicator (dot/circle) */   \n \n \t.tijd .checkmark:after {\n \ttop: 9px;\n\tleft: 9px;\n\twidth: 8px;\n\theight: 8px;\n}   \n \n \t.tijd .checkmark{\n\t  text-align: center;\n    color: white;\n    padding-top: 2px;\n}\n\n\n\n\n\n\n"
 
 /***/ }),
 
 /***/ "./src/app/klant/klant.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Plan uw afspraak in</h3>\n<br>\n<div class=\"container\">\n  <form>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <h5>Selecteer een datum</h5>\n        <!-- <div id=\"datepicker\"></div> -->\n        <div *ngFor=\"let date of dates\">\n          \n        </div>\n        <br>\n        <a (click)='getTijden()'>Klik hier</a>\n        <h5>Selecteer een tijd</h5>\n        <div class=\"keuze_tijd col-md-8\" *ngIf=\"tijden.length; else other_content\">\n          <label class=\"tijd\" *ngFor=\"let tijd of tijden\">\n            <input type=\"radio\" value=\"{{tijd}}\" name=\"tijd\">\n            <span class=\"checkmark\">{{tijd}}</span>\n          </label>\n        </div>\n        <ng-template #other_content>\n          <p>Geen tijden beschikbaar</p>\n        </ng-template>\n        <br>\n      </div>\n      <div class=\"col-md-6\">\n        <h5>Reden afspraak</h5>\n        <div class=\"row\">\n          <div class=\"col-md-4\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Reparatie\">Reparatie\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Laptops bezichtigen\" checked>Laptops bezichtigen\n              </label>\n            </div>\n          </div>\n          <div class=\"col-md-3\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Computerhulp\">Computerhulp\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Overig\">Overig\n              </label>\n            </div>\n          </div>\n\n        </div>\n        <h5>Naam</h5>\n        <input type=\"text\" name=\"name\" id=\"name\" required=\"required\" class=\"form\" />\n        <h5>Email</h5>\n        <input type=\"email\" name=\"mail\" id=\"mail\" required=\"required\" class=\"form\" />\n        <h5>Telefoonnummer</h5>\n        <input type=\"text\" name=\"mail\" id=\"telefoonnummer\" required=\"required\" class=\"form\" />\n        <h5>Opmerkingen</h5>\n        <textarea name=\"opmerkingen\" id=\"opmerkingen\" class=\"opmerkingen\"></textarea>\n        <br>\n        <br>\n        <button class=\"eindknop\" (click)='ophalen_gegevens()'>Afspraak inplannen</button>\n      </div>\n    </div>\n  </form>\n</div>\n\n<app-maps></app-maps>"
+module.exports = "<h3>Plan uw afspraak in</h3>\n<br>\n<div class=\"container\">\n  <form>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <h5>Selecteer een datum</h5>\n        \n\n        <my-date-picker [options]=\"myDatePickerOptions\" [selDate]=\"selDate\"\n                (dateChanged)=\"onDateChanged($event)\"></my-date-picker>\n\n\n\n\n<!--         <div id=\"datepicker\" class=\"datepickermax\"></div>\n -->       \n\n        <br>\n        <h5>Selecteer een tijd</h5>\n        <div class=\"keuze_tijd col-md-8\" *ngIf=\"tijden.length; else other_content\">\n          <label class=\"tijd\" *ngFor=\"let tijd of tijden\">\n            <input type=\"radio\" value=\"{{tijd}}\" name=\"tijd\">\n            <span class=\"checkmark\">{{tijd}}</span>\n          </label>\n        </div>\n        <ng-template #other_content>\n          <p>Geen tijden beschikbaar</p>\n        </ng-template>\n        <br>\n      </div>\n      <div class=\"col-md-6\">\n        <h5>Reden afspraak</h5>\n        <div class=\"row\">\n          <div class=\"col-md-4\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Reparatie\">Reparatie\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Laptops bezichtigen\" checked>Laptops bezichtigen\n              </label>\n            </div>\n          </div>\n          <div class=\"col-md-3\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Computerhulp\">Computerhulp\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Overig\">Overig\n              </label>\n            </div>\n          </div>\n\n        </div>\n        <h5>Naam</h5>\n        <input type=\"text\" name=\"name\" id=\"name\" required=\"required\" class=\"form\" />\n        <h5>Email</h5>\n        <input type=\"email\" name=\"mail\" id=\"mail\" required=\"required\" class=\"form\" />\n        <h5>Telefoonnummer</h5>\n        <input type=\"text\" name=\"mail\" id=\"telefoonnummer\" required=\"required\" class=\"form\" />\n        <h5>Opmerkingen</h5>\n        <textarea name=\"opmerkingen\" id=\"opmerkingen\" class=\"opmerkingen\"></textarea>\n        <br>\n        <br>\n        <button class=\"eindknop\" (click)='ophalen_gegevens()'>Afspraak inplannen</button>\n      </div>\n    </div>\n  </form>\n</div>\n<app-maps></app-maps>"
 
 /***/ }),
 
@@ -524,6 +534,7 @@ module.exports = "<h3>Plan uw afspraak in</h3>\n<br>\n<div class=\"container\">\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__afspraken_service__ = __webpack_require__("./src/app/afspraken.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -536,50 +547,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var KlantComponent = /** @class */ (function () {
-    function KlantComponent(afsprakenService) {
+    function KlantComponent(afsprakenService, router) {
         this.afsprakenService = afsprakenService;
+        this.router = router;
+        this.selDate = { year: 0, month: 0, day: 0 };
+        this.myDatePickerOptions = {
+            inline: true,
+            dateFormat: 'yyyy-mm-dd',
+            dayLabels: { su: 'Zo', mo: 'Ma', tu: 'Di', we: 'Wo', th: 'Do', fr: 'Vr', sa: 'Za' },
+            monthLabels: { 1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Dec' },
+            showTodayBtn: false,
+            yearSelector: false,
+            disableUntil: { year: new Date().getFullYear(), month: new Date().getMonth() + 1, day: new Date().getDate() - 1 },
+            sunHighlight: false
+        };
+        var d = new Date();
+        this.selDate = { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() };
     }
+    KlantComponent.prototype.onDateChanged = function (event) {
+        this.datum = event.formatted.replace("/", "-").replace("/", "-");
+        this.getTijden(this.datum);
+    };
     KlantComponent.prototype.ngOnInit = function () {
         var self = this;
-        setTimeout(function () {
-            self.getTijden();
-        }, 2000);
         var d = new Date();
-        var year = d.getFullYear();
-        var month = d.getMonth();
-        this.getIncrement(year, month);
-    };
-    KlantComponent.prototype.getIncrement = function (year, month) {
-        var date = new Date('' + year + '-' + month + '-1');
-        var increment = date.getDay() > 0 ? date.getDay() - 2 : 5;
-        console.log(increment);
-        return increment;
-    };
-    KlantComponent.prototype.getDate = function (week, dayWeek, year, month, increment) {
-        var date;
-        var day = week * 7 + dayWeek - increment;
-        if (day <= 0) {
-            var fechaAuxiliar = new Date('' + year + '-' + month + '-1');
-            date = new Date(fechaAuxiliar.getTime() + ((day - 1) * 24 * 60 * 60 * 1000));
-        }
-        else {
-            date = new Date('' + year + '-' + month + '-' + day);
-            if (isNaN(date.getTime())) {
-                var fechaAuxiliar = new Date('' + year + '-' + month + '-1');
-                date = new Date(fechaAuxiliar.getTime() + ((day + 1 - increment) * 24 * 60 * 60 * 1000));
-            }
-            console.log(date);
-            return date;
-        }
+        var month = d.getMonth() + 1;
+        var datumVandaag = __WEBPACK_IMPORTED_MODULE_2_moment__(d.getFullYear() + "-" + month + "-" + d.getDate(), "YYYY-MM-DD").format("YYYY-MM-DD");
+        self.getTijden(datumVandaag);
     };
     KlantComponent.prototype.ophalen_gegevens = function () {
-        var maand = parseInt($('.ui-datepicker-current-day').attr("data-month")) + 1;
-        var jaar = $('.ui-datepicker-current-day').attr("data-year");
         var dag = $('.ui-datepicker-current-day').find("a").html();
         var tijd = document.querySelector('input[name="tijd"]:checked').value;
-        var datumgekozen = __WEBPACK_IMPORTED_MODULE_2_moment__(jaar + "-" + maand + "-" + dag, "YYYY-MM-DD").format("YYYY-MM-DD");
+        // var datumgekozen = moment(jaar + "-" + maand + "-" + dag, "YYYY-MM-DD").format("YYYY-MM-DD");
+        var datumgekozen = this.datum;
+        console.log(datumgekozen);
         var startTijd = datumgekozen + "T" + tijd;
+        console.log(startTijd);
         var gegevens = {
             startTijd: startTijd,
             naam: document.getElementById('name').value,
@@ -588,24 +593,25 @@ var KlantComponent = /** @class */ (function () {
             probleem: document.querySelector('input[name="reden"]:checked').value,
             opmerkingen: document.getElementById('opmerkingen').value
         };
-        console.log(gegevens);
+        // console.log(gegevens);
         this.afsprakenService.gegevens_doorsturen(gegevens).subscribe();
+        this.router.navigate(['/succes']);
     };
-    KlantComponent.prototype.getTijden = function () {
+    KlantComponent.prototype.getTijden = function (datum) {
         var _this = this;
         var maand = parseInt($('.ui-datepicker-current-day').attr("data-month")) + 1;
         var jaar = $('.ui-datepicker-current-day').attr("data-year");
         var dag = $('.ui-datepicker-current-day').find("a").html();
-        var datum = __WEBPACK_IMPORTED_MODULE_2_moment__(jaar + "-" + maand + "-" + dag, "YYYY-MM-DD").format("YYYY-MM-DD");
+        // var datum = moment(jaar + "-" + maand + "-" + dag, "YYYY-MM-DD").format("YYYY-MM-DD");
         this.afsprakenService.tijden_ophalen(datum).subscribe(function (beschikbaar) {
             var beschikbare_tijden = [];
             for (var i = 0; i < beschikbaar.length; i++) {
                 var de_tijd = beschikbaar[i].startTijd.substring(11, 16);
-                console.log(de_tijd);
+                // console.log(de_tijd)
                 beschikbare_tijden.push(de_tijd);
             }
             _this.tijden = beschikbare_tijden;
-            console.log(_this.tijden);
+            // console.log(this.tijden);
         });
     };
     KlantComponent = __decorate([
@@ -614,7 +620,7 @@ var KlantComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/klant/klant.component.html"),
             styles: [__webpack_require__("./src/app/klant/klant.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__afspraken_service__["a" /* AfsprakenService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__afspraken_service__["a" /* AfsprakenService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], KlantComponent);
     return KlantComponent;
 }());
@@ -968,6 +974,56 @@ var MyComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__afspraken_service__["a" /* AfsprakenService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]])
     ], MyComponent);
     return MyComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/succes/succes.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/succes/succes.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  Succes!\n</p>\n\n<app-maps></app-maps>"
+
+/***/ }),
+
+/***/ "./src/app/succes/succes.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuccesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SuccesComponent = /** @class */ (function () {
+    function SuccesComponent() {
+    }
+    SuccesComponent.prototype.ngOnInit = function () {
+    };
+    SuccesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-succes',
+            template: __webpack_require__("./src/app/succes/succes.component.html"),
+            styles: [__webpack_require__("./src/app/succes/succes.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SuccesComponent);
+    return SuccesComponent;
 }());
 
 

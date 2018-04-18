@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AfsprakenService } from '../afspraken.service';
 import { MomentModule } from 'angular2-moment';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
+import {IMyDpOptions, IMyDateModel, IMyDate} from 'mydatepicker';
+
 
 @Component({
   selector: 'app-klant',
@@ -10,75 +13,53 @@ import * as moment from 'moment';
 })
 export class KlantComponent implements OnInit {
 
-  constructor(private afsprakenService: AfsprakenService) { }
+  private selDate: IMyDate = {year: 0, month: 0, day: 0};
+  
+  myDatePickerOptions: IMyDpOptions = {
+      inline: true,
+      dateFormat: 'yyyy-mm-dd',
+      dayLabels: {su: 'Zo', mo: 'Ma', tu: 'Di', we: 'Wo', th: 'Do', fr: 'Vr', sa: 'Za'},
+      monthLabels: { 1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Dec' },
+      showTodayBtn: false,
+      yearSelector: false,
+      disableUntil: { year: new Date().getFullYear(), month: new Date().getMonth() + 1, day: new Date().getDate() - 1},
+      sunHighlight: false
+  };
+
+  constructor(private afsprakenService: AfsprakenService, private router: Router) {
+    let d: Date = new Date();
+    this.selDate = {year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate()};
+  }
+
+  datum: string;
+
+  onDateChanged(event: IMyDateModel) {
+      this.datum = event.formatted.replace("/", "-").replace("/", "-");
+      this.getTijden(this.datum);
+  }
 
   ngOnInit() {
     let self = this;
-    setTimeout(function () {
-      self.getTijden();
-    }, 2000);
-
-    var d = new Date();
-    var year = d.getFullYear();
-    var month = d.getMonth();
-
-    this.getIncrement(year, month);
-
+    let d: Date = new Date();
+    let month = d.getMonth() + 1;
+    let datumVandaag = moment(d.getFullYear() + "-" + month + "-" + d.getDate(), "YYYY-MM-DD").format("YYYY-MM-DD");
+    
+    self.getTijden(datumVandaag);
   }
-
-  private getIncrement(year:number,month:number): number {
-    let date = new Date('' + year + '-' + month + '-1');
-    let increment = date.getDay() > 0 ? date.getDay() - 2 : 5;
-    console.log(increment);
-    return increment;
-  }
-
-  private getDate(week: number, dayWeek: number, 
-                   year:number,month:number,increment:number) {
-        let date:any
-        let day = week * 7 + dayWeek - increment;
-        if (day <= 0) {
-          let fechaAuxiliar = new Date('' + year + '-' + month + '-1');
-          date = new Date(fechaAuxiliar.getTime() + ((day - 1) * 24 * 60 * 60 * 1000));
-        }
-        else {
-          date = new Date('' + year + '-' + month + '-' + day);
-          if (isNaN(date.getTime())) {
-              let fechaAuxiliar = new Date('' + year + '-' + month + '-1');
-              date = new Date(fechaAuxiliar.getTime() + ((day + 1 - increment) * 24 * 60 * 60 * 1000));
-        }
-        console.log(date);
-        return date;
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   tijden;
 
   ophalen_gegevens() {
-    var maand = parseInt($('.ui-datepicker-current-day').attr("data-month")) + 1;
-    var jaar = $('.ui-datepicker-current-day').attr("data-year");
     var dag = $('.ui-datepicker-current-day').find("a").html();
 
     var tijd = (<HTMLInputElement>document.querySelector('input[name="tijd"]:checked')).value;
 
-    var datumgekozen = moment(jaar + "-" + maand + "-" + dag, "YYYY-MM-DD").format("YYYY-MM-DD");
+    // var datumgekozen = moment(jaar + "-" + maand + "-" + dag, "YYYY-MM-DD").format("YYYY-MM-DD");
+    var datumgekozen = this.datum;
+    console.log(datumgekozen)
 
     var startTijd = datumgekozen + "T" + tijd;
+    console.log(startTijd);
 
     var gegevens = {
       startTijd: startTijd,
@@ -88,17 +69,19 @@ export class KlantComponent implements OnInit {
       probleem: (<HTMLInputElement>document.querySelector('input[name="reden"]:checked')).value,
       opmerkingen: (<HTMLInputElement>document.getElementById('opmerkingen')).value
     };
-    console.log(gegevens);
+    // console.log(gegevens);
 
     this.afsprakenService.gegevens_doorsturen(gegevens).subscribe()
+
+    this.router.navigate(['/succes']);    
   }
 
-  getTijden() {
+  getTijden(datum) {
     var maand = parseInt($('.ui-datepicker-current-day').attr("data-month")) + 1;
     var jaar = $('.ui-datepicker-current-day').attr("data-year");
     var dag = $('.ui-datepicker-current-day').find("a").html();
 
-    var datum = moment(jaar + "-" + maand + "-" + dag, "YYYY-MM-DD").format("YYYY-MM-DD");
+    // var datum = moment(jaar + "-" + maand + "-" + dag, "YYYY-MM-DD").format("YYYY-MM-DD");
 
     this.afsprakenService.tijden_ophalen(datum).subscribe(
       beschikbaar => {
@@ -107,13 +90,13 @@ export class KlantComponent implements OnInit {
 
         for (let i = 0; i < beschikbaar.length; i++) {
           let de_tijd = beschikbaar[i].startTijd.substring(11, 16);
-          console.log(de_tijd)
+          // console.log(de_tijd)
           beschikbare_tijden.push(de_tijd)
         }
 
         this.tijden = beschikbare_tijden;
 
-        console.log(this.tijden);
+        // console.log(this.tijden);
       }
     )
   }

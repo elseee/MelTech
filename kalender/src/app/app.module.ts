@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import * as $ from 'jquery';
 import { HttpClientModule }    from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MyDatePickerModule } from 'mydatepicker';
+
 
 
 
@@ -14,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { KlantComponent } from './klant/klant.component';
 import { MapsComponent } from './maps/maps.component';
+import { SuccesComponent } from './succes/succes.component';
 
 
 
@@ -24,13 +27,15 @@ import { MapsComponent } from './maps/maps.component';
     MyComponent,
     LoginComponent,
     KlantComponent,
-    MapsComponent
+    MapsComponent,
+    SuccesComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MyDatePickerModule
   ],
   providers: [
     AfsprakenService
