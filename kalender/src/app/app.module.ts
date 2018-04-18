@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { KlantComponent } from './klant/klant.component';
 import { MapsComponent } from './maps/maps.component';
+import { SuccesComponent } from './succes/succes.component';
 
 
 
@@ -24,7 +25,8 @@ import { MapsComponent } from './maps/maps.component';
     MyComponent,
     LoginComponent,
     KlantComponent,
-    MapsComponent
+    MapsComponent,
+    SuccesComponent
   ],
   imports: [
     BrowserModule,

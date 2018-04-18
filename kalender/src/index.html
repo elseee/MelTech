@@ -20,7 +20,9 @@
   <script>$(function () {
         
         $(document).ready(function(){
-          $("#datepicker").datepicker()
+          $("#datepicker").datepicker({
+            minDate: 0
+          })
         });
 
       $.datepicker.regional['nl'] = {
@@ -43,6 +45,7 @@
               initStatus: 'Kies een datum', isRTL: false
             };
        $.datepicker.setDefaults($.datepicker.regional['nl']);
+       
         });
     </script>
       <script>

@@ -354,6 +354,7 @@ var AfsprakenService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__my_my_component__ = __webpack_require__("./src/app/my/my-component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__klant_klant_component__ = __webpack_require__("./src/app/klant/klant.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__succes_succes_component__ = __webpack_require__("./src/app/succes/succes.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -365,11 +366,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: '', redirectTo: '/klant', pathMatch: 'full' },
     { path: 'klant', component: __WEBPACK_IMPORTED_MODULE_4__klant_klant_component__["a" /* KlantComponent */] },
     { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_2__login_login_component__["a" /* LoginComponent */] },
-    { path: 'kalender', component: __WEBPACK_IMPORTED_MODULE_3__my_my_component__["a" /* MyComponent */] }
+    { path: 'kalender', component: __WEBPACK_IMPORTED_MODULE_3__my_my_component__["a" /* MyComponent */] },
+    { path: 'succes', component: __WEBPACK_IMPORTED_MODULE_5__succes_succes_component__["a" /* SuccesComponent */] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -384,6 +387,7 @@ var AppRoutingModule = /** @class */ (function () {
     return AppRoutingModule;
 }());
 
+// hier moet straks de verwijzing ook naar de succes pagina van het formulier komen te staan 
 
 
 /***/ }),
@@ -451,12 +455,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__klant_klant_component__ = __webpack_require__("./src/app/klant/klant.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__maps_maps_component__ = __webpack_require__("./src/app/maps/maps.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__succes_succes_component__ = __webpack_require__("./src/app/succes/succes.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -480,7 +486,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_7__my_my_component__["a" /* MyComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__login_login_component__["a" /* LoginComponent */],
                 __WEBPACK_IMPORTED_MODULE_10__klant_klant_component__["a" /* KlantComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__maps_maps_component__["a" /* MapsComponent */]
+                __WEBPACK_IMPORTED_MODULE_11__maps_maps_component__["a" /* MapsComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__succes_succes_component__["a" /* SuccesComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -511,7 +518,7 @@ module.exports = "@import url('http://fonts.googleapis.com/css?family=Open+Sans:
 /***/ "./src/app/klant/klant.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Plan uw afspraak in</h3>\n<br>\n<div class=\"container\">\n  <form>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <h5>Selecteer een datum</h5>\n        <div id=\"datepicker\"></div>\n        <br>\n        <a (click)='getTijden()'>Klik hier</a>\n        <h5>Selecteer een tijd</h5>\n        <div class=\"keuze_tijd col-md-8\">\n          <label class=\"tijd\" *ngFor=\"let tijd of tijden\">\n            <input type=\"radio\" value=\"{{tijd}}\" name=\"tijd\">\n            <span class=\"checkmark\">{{tijd}}</span>\n          </label>\n        </div>\n        <br>\n      </div>\n      <div class=\"col-md-6\">\n        <h5>Reden afspraak</h5>\n        <div class=\"row\">\n          <div class=\"col-md-4\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"reparatie\">Reparatie\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"bezichtiging\" checked>Laptops bezichtigen\n              </label>\n            </div>\n          </div>\n          <div class=\"col-md-3\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"hulp\">Computerhulp\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"overig\">Overig\n              </label>\n            </div>\n          </div>\n\n        </div>\n        <h5>Naam</h5>\n        <input type=\"text\" name=\"name\" id=\"name\" required=\"required\" class=\"form\" />\n        <h5>Email</h5>\n        <input type=\"email\" name=\"mail\" id=\"mail\" required=\"required\" class=\"form\" />\n        <h5>Telefoonnummer</h5>\n        <input type=\"text\" name=\"mail\" id=\"telefoonnummer\" required=\"required\" class=\"form\" />\n        <h5>Opmerkingen</h5>\n        <textarea name=\"opmerkingen\" id=\"opmerkingen\" class=\"opmerkingen\"></textarea>\n        <br>\n        <br>\n        <button class=\"eindknop\" (click)='ophalen_gegevens()'>Afspraak inplannen</button>\n      </div>\n    </div>\n  </form>\n</div>\n\n<app-maps></app-maps>"
+module.exports = "<h3>Plan uw afspraak in</h3>\n<br>\n<div class=\"container\">\n  <form>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <h5>Selecteer een datum</h5>\n        <div id=\"datepicker\" class=\"datepickermax\"></div>\n        <br>\n        <a (click)='getTijden()'>Klik hier</a>\n        <h5>Selecteer een tijd</h5>\n        <div class=\"keuze_tijd col-md-8\">\n          <label class=\"tijd\" *ngFor=\"let tijd of tijden\">\n            <input type=\"radio\" value=\"{{tijd}}\" name=\"tijd\">\n            <span class=\"checkmark\">{{tijd}}</span>\n          </label>\n        </div>\n        <br>\n      </div>\n      <div class=\"col-md-6\">\n        <h5>Reden afspraak</h5>\n        <div class=\"row\">\n          <div class=\"col-md-4\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"reparatie\">Reparatie\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"bezichtiging\" checked>Laptops bezichtigen\n              </label>\n            </div>\n          </div>\n          <div class=\"col-md-3\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"hulp\">Computerhulp\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"overig\">Overig\n              </label>\n            </div>\n          </div>\n\n        </div>\n        <h5>Naam</h5>\n        <input type=\"text\" name=\"name\" id=\"name\" required=\"required\" class=\"form\" />\n        <h5>Email</h5>\n        <input type=\"email\" name=\"mail\" id=\"mail\" required=\"required\" class=\"form\" />\n        <h5>Telefoonnummer</h5>\n        <input type=\"text\" name=\"mail\" id=\"telefoonnummer\" required=\"required\" class=\"form\" />\n        <h5>Opmerkingen</h5>\n        <textarea name=\"opmerkingen\" id=\"opmerkingen\" class=\"opmerkingen\"></textarea>\n        <br>\n        <br>\n        <button class=\"eindknop\" (click)='ophalen_gegevens()'>Afspraak inplannen</button>\n      </div>\n    </div>\n  </form>\n</div>\n<app-maps></app-maps>"
 
 /***/ }),
 
@@ -524,6 +531,7 @@ module.exports = "<h3>Plan uw afspraak in</h3>\n<br>\n<div class=\"container\">\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__afspraken_service__ = __webpack_require__("./src/app/afspraken.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -536,15 +544,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var KlantComponent = /** @class */ (function () {
-    function KlantComponent(afsprakenService) {
+    function KlantComponent(afsprakenService, router) {
         this.afsprakenService = afsprakenService;
+        this.router = router;
     }
     KlantComponent.prototype.ngOnInit = function () {
         var self = this;
         setTimeout(function () {
             self.getTijden();
-        }, 2000);
+        }, 200);
     };
     KlantComponent.prototype.ophalen_gegevens = function () {
         var maand = parseInt($('.ui-datepicker-current-day').attr("data-month")) + 1;
@@ -563,6 +573,7 @@ var KlantComponent = /** @class */ (function () {
         };
         console.log(gegevens);
         this.afsprakenService.gegevens_doorsturen(gegevens).subscribe();
+        this.router.navigate(['/succes']);
     };
     KlantComponent.prototype.getTijden = function () {
         var _this = this;
@@ -586,7 +597,7 @@ var KlantComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/klant/klant.component.html"),
             styles: [__webpack_require__("./src/app/klant/klant.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__afspraken_service__["a" /* AfsprakenService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__afspraken_service__["a" /* AfsprakenService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], KlantComponent);
     return KlantComponent;
 }());
@@ -940,6 +951,56 @@ var MyComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__afspraken_service__["a" /* AfsprakenService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]])
     ], MyComponent);
     return MyComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/succes/succes.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/succes/succes.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  Succes!\n</p>\n\n<app-maps></app-maps>"
+
+/***/ }),
+
+/***/ "./src/app/succes/succes.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuccesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SuccesComponent = /** @class */ (function () {
+    function SuccesComponent() {
+    }
+    SuccesComponent.prototype.ngOnInit = function () {
+    };
+    SuccesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-succes',
+            template: __webpack_require__("./src/app/succes/succes.component.html"),
+            styles: [__webpack_require__("./src/app/succes/succes.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SuccesComponent);
+    return SuccesComponent;
 }());
 
 

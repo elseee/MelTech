@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AfsprakenService } from '../afspraken.service';
 import { MomentModule } from 'angular2-moment';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-klant',
@@ -10,14 +11,16 @@ import * as moment from 'moment';
 })
 export class KlantComponent implements OnInit {
 
-  constructor(private afsprakenService: AfsprakenService) { }
+  constructor(private afsprakenService: AfsprakenService, private router: Router) { }
 
   ngOnInit() {
     let self = this;
     setTimeout(function () {
       self.getTijden();
-    }, 2000);
+    }, 200);
   }
+
+//let op dat hier de ngOnInit kan veranderen als de knop weggehaald wordt.
 
   tijden;
 
@@ -43,6 +46,8 @@ export class KlantComponent implements OnInit {
     console.log(gegevens);
 
     this.afsprakenService.gegevens_doorsturen(gegevens).subscribe()
+
+    this.router.navigate(['/succes']);    
   }
 
   getTijden() {
