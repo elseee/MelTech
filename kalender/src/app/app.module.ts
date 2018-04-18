@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import * as $ from 'jquery';
 import { HttpClientModule }    from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MyDatePickerModule } from 'mydatepicker';
+
 
 
 
@@ -32,7 +34,8 @@ import { SuccesComponent } from './succes/succes.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MyDatePickerModule
   ],
   providers: [
     AfsprakenService
