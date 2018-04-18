@@ -511,7 +511,7 @@ module.exports = "@import url('http://fonts.googleapis.com/css?family=Open+Sans:
 /***/ "./src/app/klant/klant.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Plan uw afspraak in</h3>\n<br>\n<div class=\"container\">\n  <form>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <h5>Selecteer een datum</h5>\n        <div id=\"datepicker\"></div>\n        <br>\n        <a (click)='getTijden()'>Klik hier</a>\n        <h5>Selecteer een tijd</h5>\n        <div class=\"keuze_tijd col-md-8\" *ngIf=\"tijden.length; else other_content\">\n          <label class=\"tijd\" *ngFor=\"let tijd of tijden\">\n            <input type=\"radio\" value=\"{{tijd}}\" name=\"tijd\">\n            <span class=\"checkmark\">{{tijd}}</span>\n          </label>\n        </div>\n        <ng-template #other_content>\n          <p>Geen tijden beschikbaar</p>\n        </ng-template>\n        <br>\n      </div>\n      <div class=\"col-md-6\">\n        <h5>Reden afspraak</h5>\n        <div class=\"row\">\n          <div class=\"col-md-4\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Reparatie\">Reparatie\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Laptops bezichtigen\" checked>Laptops bezichtigen\n              </label>\n            </div>\n          </div>\n          <div class=\"col-md-3\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Computerhulp\">Computerhulp\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Overig\">Overig\n              </label>\n            </div>\n          </div>\n\n        </div>\n        <h5>Naam</h5>\n        <input type=\"text\" name=\"name\" id=\"name\" required=\"required\" class=\"form\" />\n        <h5>Email</h5>\n        <input type=\"email\" name=\"mail\" id=\"mail\" required=\"required\" class=\"form\" />\n        <h5>Telefoonnummer</h5>\n        <input type=\"text\" name=\"mail\" id=\"telefoonnummer\" required=\"required\" class=\"form\" />\n        <h5>Opmerkingen</h5>\n        <textarea name=\"opmerkingen\" id=\"opmerkingen\" class=\"opmerkingen\"></textarea>\n        <br>\n        <br>\n        <button class=\"eindknop\" (click)='ophalen_gegevens()'>Afspraak inplannen</button>\n      </div>\n    </div>\n  </form>\n</div>\n\n<app-maps></app-maps>"
+module.exports = "<h3>Plan uw afspraak in</h3>\n<br>\n<div class=\"container\">\n  <form>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <h5>Selecteer een datum</h5>\n        <!-- <div id=\"datepicker\"></div> -->\n        <div *ngFor=\"let date of dates\">\n          \n        </div>\n        <br>\n        <a (click)='getTijden()'>Klik hier</a>\n        <h5>Selecteer een tijd</h5>\n        <div class=\"keuze_tijd col-md-8\" *ngIf=\"tijden.length; else other_content\">\n          <label class=\"tijd\" *ngFor=\"let tijd of tijden\">\n            <input type=\"radio\" value=\"{{tijd}}\" name=\"tijd\">\n            <span class=\"checkmark\">{{tijd}}</span>\n          </label>\n        </div>\n        <ng-template #other_content>\n          <p>Geen tijden beschikbaar</p>\n        </ng-template>\n        <br>\n      </div>\n      <div class=\"col-md-6\">\n        <h5>Reden afspraak</h5>\n        <div class=\"row\">\n          <div class=\"col-md-4\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Reparatie\">Reparatie\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Laptops bezichtigen\" checked>Laptops bezichtigen\n              </label>\n            </div>\n          </div>\n          <div class=\"col-md-3\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Computerhulp\">Computerhulp\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"reden\" value=\"Overig\">Overig\n              </label>\n            </div>\n          </div>\n\n        </div>\n        <h5>Naam</h5>\n        <input type=\"text\" name=\"name\" id=\"name\" required=\"required\" class=\"form\" />\n        <h5>Email</h5>\n        <input type=\"email\" name=\"mail\" id=\"mail\" required=\"required\" class=\"form\" />\n        <h5>Telefoonnummer</h5>\n        <input type=\"text\" name=\"mail\" id=\"telefoonnummer\" required=\"required\" class=\"form\" />\n        <h5>Opmerkingen</h5>\n        <textarea name=\"opmerkingen\" id=\"opmerkingen\" class=\"opmerkingen\"></textarea>\n        <br>\n        <br>\n        <button class=\"eindknop\" (click)='ophalen_gegevens()'>Afspraak inplannen</button>\n      </div>\n    </div>\n  </form>\n</div>\n\n<app-maps></app-maps>"
 
 /***/ }),
 
@@ -545,6 +545,33 @@ var KlantComponent = /** @class */ (function () {
         setTimeout(function () {
             self.getTijden();
         }, 2000);
+        var d = new Date();
+        var year = d.getFullYear();
+        var month = d.getMonth();
+        this.getIncrement(year, month);
+    };
+    KlantComponent.prototype.getIncrement = function (year, month) {
+        var date = new Date('' + year + '-' + month + '-1');
+        var increment = date.getDay() > 0 ? date.getDay() - 2 : 5;
+        console.log(increment);
+        return increment;
+    };
+    KlantComponent.prototype.getDate = function (week, dayWeek, year, month, increment) {
+        var date;
+        var day = week * 7 + dayWeek - increment;
+        if (day <= 0) {
+            var fechaAuxiliar = new Date('' + year + '-' + month + '-1');
+            date = new Date(fechaAuxiliar.getTime() + ((day - 1) * 24 * 60 * 60 * 1000));
+        }
+        else {
+            date = new Date('' + year + '-' + month + '-' + day);
+            if (isNaN(date.getTime())) {
+                var fechaAuxiliar = new Date('' + year + '-' + month + '-1');
+                date = new Date(fechaAuxiliar.getTime() + ((day + 1 - increment) * 24 * 60 * 60 * 1000));
+            }
+            console.log(date);
+            return date;
+        }
     };
     KlantComponent.prototype.ophalen_gegevens = function () {
         var maand = parseInt($('.ui-datepicker-current-day').attr("data-month")) + 1;

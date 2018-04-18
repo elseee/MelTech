@@ -17,8 +17,55 @@ export class KlantComponent implements OnInit {
     setTimeout(function () {
       self.getTijden();
     }, 2000);
-    
+
+    var d = new Date();
+    var year = d.getFullYear();
+    var month = d.getMonth();
+
+    this.getIncrement(year, month);
+
   }
+
+  private getIncrement(year:number,month:number): number {
+    let date = new Date('' + year + '-' + month + '-1');
+    let increment = date.getDay() > 0 ? date.getDay() - 2 : 5;
+    console.log(increment);
+    return increment;
+  }
+
+  private getDate(week: number, dayWeek: number, 
+                   year:number,month:number,increment:number) {
+        let date:any
+        let day = week * 7 + dayWeek - increment;
+        if (day <= 0) {
+          let fechaAuxiliar = new Date('' + year + '-' + month + '-1');
+          date = new Date(fechaAuxiliar.getTime() + ((day - 1) * 24 * 60 * 60 * 1000));
+        }
+        else {
+          date = new Date('' + year + '-' + month + '-' + day);
+          if (isNaN(date.getTime())) {
+              let fechaAuxiliar = new Date('' + year + '-' + month + '-1');
+              date = new Date(fechaAuxiliar.getTime() + ((day + 1 - increment) * 24 * 60 * 60 * 1000));
+        }
+        console.log(date);
+        return date;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   tijden;
 
