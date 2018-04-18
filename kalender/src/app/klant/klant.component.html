@@ -1,10 +1,9 @@
 <h3>Plan uw afspraak in</h3>
-<br>
 <div class="container">
   <form>
     <div class="row">
-      <div class="col-md-6">
-        <h5>Selecteer een datum</h5>
+      <div class="col-md-4 col-md-offset-2 col-sm-6">
+        <h5>Selecteer een datum *</h5>
         
 
         <my-date-picker [options]="myDatePickerOptions" [selDate]="selDate"
@@ -16,23 +15,21 @@
 <!--         <div id="datepicker" class="datepickermax"></div>
  -->       
 
-        <br>
-        <h5>Selecteer een tijd</h5>
-        <div class="keuze_tijd col-md-8" *ngIf="tijden.length; else other_content">
-          <label class="tijd" *ngFor="let tijd of tijden">
-            <input type="radio" value="{{tijd}}" name="tijd">
+        <h5>Selecteer een tijd *</h5>
+        <div class="keuze_tijd" *ngIf="tijden.length; else other_content">
+          <label class="tijd" *ngFor="let tijd of tijden; let idx = index">
+            <input type="radio" value="{{tijd}}" name="tijd" [checked]="idx === 0">
             <span class="checkmark">{{tijd}}</span>
           </label>
         </div>
         <ng-template #other_content>
           <p>Geen tijden beschikbaar</p>
         </ng-template>
-        <br>
       </div>
-      <div class="col-md-6">
-        <h5>Reden afspraak</h5>
+      <div class="col-md-4 col-sm-6">
+        <h5>Reden afspraak *</h5>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-sm-6">
             <div class="radio">
               <label>
                 <input type="radio" name="reden" value="Reparatie">Reparatie
@@ -44,7 +41,7 @@
               </label>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-sm-6">
             <div class="radio">
               <label>
                 <input type="radio" name="reden" value="Computerhulp">Computerhulp
@@ -58,17 +55,17 @@
           </div>
 
         </div>
-        <h5>Naam</h5>
-        <input type="text" name="name" id="name" required="required" class="form" />
-        <h5>Email</h5>
-        <input type="email" name="mail" id="mail" required="required" class="form" />
-        <h5>Telefoonnummer</h5>
-        <input type="text" name="mail" id="telefoonnummer" required="required" class="form" />
+        <h5>Naam *</h5>
+        <input type="text" name="name" id="name" required class="form" [(ngModel)]="naam" />
+        <h5>Email *</h5>
+        <input type="email" name="mail" id="mail" required class="form" [(ngModel)]="mail" />
+        <h5>Telefoonnummer *</h5>
+        <input type="text" name="mail" id="telefoonnummer" required class="form" [(ngModel)]="tel" />
         <h5>Opmerkingen</h5>
-        <textarea name="opmerkingen" id="opmerkingen" class="opmerkingen"></textarea>
-        <br>
-        <br>
-        <button class="eindknop" (click)='ophalen_gegevens()'>Afspraak inplannen</button>
+        <textarea name="opmerkingen" id="opmerkingen" class="opmerkingen" [(ngModel)]="opmerkingen"></textarea>
+      
+        <p class="error">{{error}}</p>
+        <button type="submit" class="eindknop" (click)='ophalen_gegevens()'>Afspraak inplannen</button>
       </div>
     </div>
   </form>
