@@ -5,6 +5,7 @@ var path = require('path');
 app.use(bodyParser.json());
 
 var mysql = require('mysql');
+var nodemailer = require('nodemailer');
 function getConnection() {
   var connection = mysql.createConnection({
     host: 'localhost',
@@ -140,6 +141,37 @@ app.post('/formulier', function (req, res) {
   });
 
   connection.end();
+
+  var nodemailer = require('nodemailer');
+
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    secure: false,
+    port: 25,
+    auth: {
+      user: 'meltechafspraken@gmail.com',
+      pass: 'Test123!'
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  let HelperOptions = {
+    from: '"Mel Tech" <meltechafspraken@gmail.com>',
+    to: 'lauren96@live.nl',
+    subject: 'Uw afspraak',
+    text: 'Gelukt!'
+  };
+
+  transporter.sendMail(HelperOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log("The message was sent!");
+    console.log(info);
+  })
+
 });
 
 app.post('/tijd', function (req, res) {

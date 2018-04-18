@@ -12,4 +12,8 @@ export class SuccesComponent implements OnInit {
   ngOnInit() {
   }
 
+  homepage() {
+    
+  }
+
 }

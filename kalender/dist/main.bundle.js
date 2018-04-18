@@ -395,14 +395,14 @@ var AppRoutingModule = /** @class */ (function () {
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".header-fixed {\n\tbackground-color:#292c2f;\n\t-webkit-box-shadow:0 1px 1px #ccc;\n\t        box-shadow:0 1px 1px #ccc;\n\tpadding: 20px 40px;\n\theight: 80px;\n\tcolor: #ffffff;\n\t-webkit-box-sizing: border-box;\n\t        box-sizing: border-box;\n\ttop:-100px;\n\n\t-webkit-transition:top 0.3s;\n\ttransition:top 0.3s;\n}\n\n.header-fixed .header-limiter {\n\tmax-width: 1200px;\n\ttext-align: center;\n\tmargin: 0 auto;\n}\n\n/*\tThe header placeholder. It is displayed when the header is fixed to the top of the\n\tbrowser window, in order to prevent the content of the page from jumping up. */\n\n.header-fixed-placeholder{\n\theight: 80px;\n\tdisplay: none;\n}\n\n/* Logo */\n\n.header-fixed .header-limiter h1 {\n\tfloat: left;\n\tfont: normal 28px Cookie, Arial, Helvetica, sans-serif;\n\tline-height: 40px;\n\tmargin: 0;\n}\n\n.header-fixed .header-limiter h1 span {\n\tcolor: #5383d3;\n}\n\n/* The navigation links */\n\n.header-fixed .header-limiter a {\n\tcolor: #ffffff;\n\ttext-decoration: none;\n}\n\n.header-fixed .header-limiter nav {\n\tfont:16px Arial, Helvetica, sans-serif;\n\tline-height: 40px;\n\tfloat: right;\n}\n\n.header-fixed .header-limiter nav a{\n\tdisplay: inline-block;\n\tpadding: 0 5px;\n\ttext-decoration:none;\n\tcolor: #ffffff;\n\topacity: 0.9;\n}\n\n.header-fixed .header-limiter nav a:hover{\n\topacity: 1;\n}\n\n.header-fixed .header-limiter nav a.selected {\n\tcolor: #608bd2;\n\tpointer-events: none;\n\topacity: 1;\n}\n\n/* Fixed version of the header */\n\nbody.fixed .header-fixed {\n\tpadding: 10px 40px;\n\theight: 50px;\n\tposition: fixed;\n\twidth: 100%;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 1;\n}\n\nbody.fixed .header-fixed-placeholder {\n\tdisplay: block;\n}\n\nbody.fixed .header-fixed .header-limiter h1 {\n\tfont-size: 24px;\n\tline-height: 30px;\n}\n\nbody.fixed .header-fixed .header-limiter nav {\n\tline-height: 28px;\n\tfont-size: 13px;\n}\n\n/* Making the header responsive */\n\n@media all and (max-width: 600px) {\n\n\t.header-fixed {\n\t\tpadding: 20px 0;\n\t\theight: 75px;\n\t}\n\n\t.header-fixed .header-limiter h1 {\n\t\tfloat: none;\n\t\tmargin: -8px 0 10px;\n\t\ttext-align: center;\n\t\tfont-size: 24px;\n\t\tline-height: 1;\n\t}\n\n\t.header-fixed .header-limiter nav {\n\t\tline-height: 1;\n\t\tfloat:none;\n\t}\n\n\t.header-fixed .header-limiter nav a {\n\t\tfont-size: 13px;\n\t}\n\n\tbody.fixed .header-fixed {\n\t\tdisplay: none;\n\t}\n\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n<!-- hier moet de header -->"
+module.exports = "<header class=\"header-fixed\">\n\n    <div class=\"header-limiter\">\n\n        <h1>\n            <a href=\"#\">Company\n                <span>logo</span>\n            </a>\n        </h1>\n\n        <nav>\n            <a href=\"#\">Home</a>\n            <a href=\"#\" class=\"selected\">Blog</a>\n            <a href=\"#\">Pricing</a>\n            <a href=\"#\">About</a>\n            <a href=\"#\">Faq</a>\n            <a href=\"#\">Contact</a>\n        </nav>\n\n    </div>\n\n</header>\n\n<!-- You need this element to prevent the content of the page from jumping up -->\n<div class=\"header-fixed-placeholder\"></div>\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -698,7 +698,7 @@ var LoginComponent = /** @class */ (function () {
 /***/ "./src/app/maps/maps.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#map {\n        height: 400px;\n        width: 100%;\n       }\nh1, h3{\n        text-align: center;\n        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;\n        }\n"
+module.exports = "#map {\n        height: 400px;\n        width: 100%;\n       }\nh3{\n        text-align: center;\n        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;\n        }\n"
 
 /***/ }),
 
