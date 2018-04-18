@@ -93,7 +93,7 @@ export class MyComponent{
     		}
     		else {
     			let event = {
-	    			title: 'afspraak mogelijkheid',
+	    			title: 'Afspraak mogelijkheid',
 	    			end: end,
 	    			start: start,
 	    			allDay: false

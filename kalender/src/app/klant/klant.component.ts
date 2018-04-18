@@ -69,6 +69,8 @@ export class KlantComponent implements OnInit {
         }
 
         this.tijden = beschikbare_tijden;
+
+        console.log(this.tijden);
       }
     )
   }
