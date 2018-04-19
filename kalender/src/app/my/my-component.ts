@@ -135,12 +135,12 @@ export class MyComponent{
 
         this.calendarOptions = {
 			defaultView: 'agendaWeek',
+			firstDay: 1,
 			nowIndicator: true,
 			minTime: "08:00:00",
 			maxTime: "21:30:00",
 			aspectRatio: 1.5,
 			selectable: true,
-			weekends: false,
 			events: self.existingEvents,
 			allDaySlot: false,
 			timeFormat: 'H:mm',
@@ -181,10 +181,16 @@ export class MyComponent{
 			    self.email = calEvent.klantEmail;
 			    self.tel = calEvent.klantTel;
 			    self.probleem = calEvent.klantProbleem;
-			    self.opmerking = calEvent.klantOpmerking;
 			    self.dag = calEvent.start.format('dddd, MMMM YY'); 
 			    self.start = calEvent.start.format('HH:mm');
 			    self.eind = calEvent.end.format('HH:mm');
+			    if (calEvent.klantOpmerking == 'undefined') {
+			    	self.opmerking = '';
+			    	
+			    }
+			    else {
+			    	self.opmerking = calEvent.klantOpmerking;
+			    }
 
 			    self.cdRef.detectChanges();
 
