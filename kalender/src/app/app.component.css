@@ -1,129 +1,190 @@
-.header-fixed {
-	background-color:#292c2f;
-	box-shadow:0 1px 1px #ccc;
-	padding: 20px 40px;
-	height: 80px;
-	color: #ffffff;
-	box-sizing: border-box;
-	top:-100px;
-
-	-webkit-transition:top 0.3s;
-	transition:top 0.3s;
+#myFooter {
+    background-color: #182c39;
+    color: white;
+    padding-top: 20px;
 }
 
-.header-fixed .header-limiter {
-	max-width: 1200px;
-	text-align: center;
-	margin: 0 auto;
+#map-container {
+    height: 240px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
-/*	The header placeholder. It is displayed when the header is fixed to the top of the
-	browser window, in order to prevent the content of the page from jumping up. */
-
-.header-fixed-placeholder{
-	height: 80px;
-	display: none;
+#myFooter .row {
+    margin: 0 85px;
 }
 
-/* Logo */
-
-.header-fixed .header-limiter h1 {
-	float: left;
-	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
-	line-height: 40px;
-	margin: 0;
+#myFooter .footer-copyright {
+    background-color: #10222e;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
 }
 
-.header-fixed .header-limiter h1 span {
-	color: #5383d3;
+#myFooter .footer-copyright p {
+    margin: 10px;
+    color: #ccc;
 }
 
-/* The navigation links */
-
-.header-fixed .header-limiter a {
-	color: #ffffff;
-	text-decoration: none;
+#myFooter .container {
+    width: auto;
 }
 
-.header-fixed .header-limiter nav {
-	font:16px Arial, Helvetica, sans-serif;
-	line-height: 40px;
-	float: right;
+#myFooter ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
 }
 
-.header-fixed .header-limiter nav a{
-	display: inline-block;
-	padding: 0 5px;
-	text-decoration:none;
-	color: #ffffff;
-	opacity: 0.9;
+#myFooter h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
 }
 
-.header-fixed .header-limiter nav a:hover{
-	opacity: 1;
+#myFooter a {
+    color: #d2d1d1;
+    text-decoration: none;
 }
 
-.header-fixed .header-limiter nav a.selected {
-	color: #608bd2;
-	pointer-events: none;
-	opacity: 1;
+#myFooter a:hover,
+#myFooter a:focus {
+    text-decoration: none;
+    color: white;
 }
 
-/* Fixed version of the header */
-
-body.fixed .header-fixed {
-	padding: 10px 40px;
-	height: 50px;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 1;
+#myFooter .social-networks {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 38px;
 }
 
-body.fixed .header-fixed-placeholder {
-	display: block;
+#myFooter .fa {
+    font-size: 30px;
+    margin-right: 15px;
+    margin-left: 20px;
+    background-color: white;
+    color: #182c39;
+    border-radius: 51%;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 31px;
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
-body.fixed .header-fixed .header-limiter h1 {
-	font-size: 24px;
-	line-height: 30px;
+#myFooter .fa-facebook:hover {
+    color: #207164;
+}
+#myFooter .fa-facebook {
+    font-size: 40px
 }
 
-body.fixed .header-fixed .header-limiter nav {
-	line-height: 28px;
-	font-size: 13px;
+#myFooter .fa-facebook:focus {
+    color: #207164;
 }
 
 
-/* Making the header responsive */
+@media screen and (max-width: 767px) {
+    #myFooter {
+        text-align: center;
+    }
+    #myFooter .row {
+        margin: 0;
+    }
+}
 
-@media all and (max-width: 600px) {
+#navigation-purple {
+    padding-bottom: 0px;
+    margin: 0;
+    background-color: #182c39;
+    border: none;
+    border-radius: 0;
+}
 
-	.header-fixed {
-		padding: 20px 0;
-		height: 75px;
-	}
+#navigation-purple .nav {
+    margin-left: -15px;
+}
 
-	.header-fixed .header-limiter h1 {
-		float: none;
-		margin: -8px 0 10px;
-		text-align: center;
-		font-size: 24px;
-		line-height: 1;
-	}
+#navigation-purple .nav > li {
+    border-bottom: 2px solid transparent;
+    margin-bottom: 34px;
+}
 
-	.header-fixed .header-limiter nav {
-		line-height: 1;
-		float:none;
-	}
+#navigation-purple .nav > li:hover {
+    border-bottom-color: #fff;
+}
 
-	.header-fixed .header-limiter nav a {
-		font-size: 13px;
-	}
+#navigation-purple .nav > li:focus {
+    background-color: transparent;
+}
 
-	body.fixed .header-fixed {
-		display: none;
-	}
+#navigation-purple .nav > li > a {
+    font-size: 18px;
+    color: white;
+    font-family: 'Gudea';
+}
 
+#navigation-purple .nav > li > a:hover,
+#navigation-purple .nav > li > a:focus {
+    background-color: transparent;
+}
+
+#navigation-purple .navbar-collapse {
+    padding-top: 35px;
+}
+
+#navigation-purple .avatar {
+    height: 80px;
+    float: right;
+    margin-top: 19px;
+}
+
+#navigation-purple .icon-bar {
+    background-color: white;
+}
+
+#navigation-purple .navbar-toggle {
+    border-color: white;
+    float: left;
+    margin-left: 25px;
+    margin-top: 30px;
+}
+
+#navigation-purple .navbar-toggle:hover,
+#navigation-purple .navbar-toggle:focus {
+     background-color: transparent;
+}
+
+@media screen and (max-width: 767px) {
+
+    #navigation-purple .navbar-collapse {
+        padding-top: 0;
+    }
+
+    #navigation-purple ul>li {
+        float: left;
+        clear: left;
+        margin-left: 4px;
+        padding-bottom: 8px;
+        margin-bottom: 5px !important;
+    }
+
+    #navigation-purple ul>li>a {
+        padding-bottom: 2px;
+    }
+
+    #navigation-purple ul>li:hover {
+        border-bottom: 2px solid white;
+    }
+
+    #navigation-purple .avatar {
+        height: 60px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
 }

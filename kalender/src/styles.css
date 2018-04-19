@@ -248,3 +248,34 @@ h1, h2, h3, h4 {
 .mydp .headerbtncell {
 	background-color: #333!important;
 }
+
+#map {
+        height: 400px;
+        width: 100%;
+       }
+h3{
+        text-align: center;
+        }
+
+		html{
+	height: 100% !important;
+}
+
+body{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    height: 100%;
+}
+
+.content{
+	flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	min-height: 200px;
+}
+
+#myFooter{
+	flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+}
