@@ -68,6 +68,22 @@ h1, h2, h3, h4 {
     background: none; 
 }
 
+input, textarea {
+  background-color: #F4F4F4;
+  width: 100%;
+  border-radius: 3px;
+  border: 2px solid #F4F4F4;
+  padding: 7px;
+}
+
+button {
+  background-color: #4ABDAC;
+  border-radius: 3px;
+  border: 2px solid #4ABDAC;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+}
 
 /*STYLING DATEPICKER*/
 .mydp .disabled, .mydp .disabled .currmonth {
