@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-succes',
@@ -7,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   homepage() {
-    
+    this.router.navigate(['/home']);
   }
 
 }

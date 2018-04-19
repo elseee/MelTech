@@ -3,14 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { MyComponent } from './my/my-component';
 import { KlantComponent } from './klant/klant.component';
-import { SuccesComponent } from './succes/succes.component'
+import { SuccesComponent } from './succes/succes.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { ContactComponent } from './contact/contact.component';
+import { OverOnsComponent } from './over-ons/over-ons.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/klant', pathMatch: 'full' },
+	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: 'klant', component: KlantComponent },
 	{ path: 'admin', component: LoginComponent },
 	{ path: 'kalender', component: MyComponent},
-	{ path: 'succes', component: SuccesComponent }
+	{ path: 'succes', component: SuccesComponent },
+	{ path: 'home', component: HomepageComponent },
+	{ path: 'over_ons', component: OverOnsComponent },
+	{ path: 'contact', component: ContactComponent }
 ];
 
 @NgModule({

@@ -17,6 +17,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { KlantComponent } from './klant/klant.component';
 import { MapsComponent } from './maps/maps.component';
 import { SuccesComponent } from './succes/succes.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { OverOnsComponent } from './over-ons/over-ons.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -28,7 +31,10 @@ import { SuccesComponent } from './succes/succes.component';
     LoginComponent,
     KlantComponent,
     MapsComponent,
-    SuccesComponent
+    SuccesComponent,
+    HomepageComponent,
+    OverOnsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
