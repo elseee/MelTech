@@ -100,8 +100,27 @@ app.get('/get', function (req, res) {
   connection.end();
 });
 
+app.post('/delete', function (req, res) {
+  console.log('in /delete');
+  var afspraak = req.body.afspraak;
+
+  var connection = getConnection();
+  connection.connect();
+
+  connection.query('DELETE from afspraken where startTijd = ?', afspraak, function (err, rows, fields) {
+    // console.log('deleted ' + afspraak);
+    res.status(200).end();
+  });
+
+  connection.end();
+});
 
 
+/*
+*
+*     Klant
+*
+*/
 
 app.post('/formulier', function (req, res) {
   console.log('in /formulier');
@@ -116,7 +135,7 @@ app.post('/formulier', function (req, res) {
   var opmerkingen = req.body.opmerkingen;
   var probleem = req.body.probleem;
 
-  console.log(probleem);
+  // console.log(probleem);
 
   var query = connection.query('UPDATE afspraken SET naam ="' + naam + '", email="' + email + '", tel="' + tel + '", probleem="' + probleem + '", opmerkingen="' + opmerkingen + '" WHERE startTijd LIKE"' + req.body.startTijd + '%"', function (err, result) {
     res.status(200).end();
@@ -139,12 +158,24 @@ app.post('/formulier', function (req, res) {
     }
   });
 
+  console.log(naam);
+
+  var datum = req.body.startTijd.substring(0, 10);
+  var tijd = req.body.startTijd.substring(11, 16);
+
+    console.log(datum);
+    console.log(tijd);
+
+
   let HelperOptions = {
     from: '"Mel Tech" <meltechafspraken@gmail.com>',
-    to: 'lauren96@live.nl',
-    subject: 'Uw afspraak',
-    text: 'Gelukt!'
+    to: 'tenbroekeem@gmail.com', //LET OP!! moet variabele email zijn !! 
+    subject: 'Uw afspraak met MelTech',
+    text: 'Beste ' + naam +', U heeft succesvol een afspraak gemaakt met MelTech op ' +  datum + ' om ' + tijd + '. Er wordt zo snel mogelijk contact met u opgenomen betreffende deze afspraak. Met vriendelijke groet, MelTech',
+    html: '<p>Beste ' + naam +',</p><p>U heeft succesvol een afspraak gemaakt met MelTech op <b>' +  datum + ' om ' + tijd + '</b>. Er wordt zo snel mogelijk contact met u opgenomen betreffende deze afspraak.</p><br><p>Met vriendelijke groet,</p><p>MelTech</p> ' 
   };
+
+  console.log(HelperOptions.text);
 
   transporter.sendMail(HelperOptions, (error, info) => {
     if (error) {
@@ -155,7 +186,6 @@ app.post('/formulier', function (req, res) {
   })
 
 });
-
 
 
 
@@ -185,21 +215,11 @@ app.post('/tijd', function (req, res) {
 
 
 
-app.post('/delete', function (req, res) {
-  console.log('in /delete');
-  var afspraak = req.body.afspraak;
-
-  var connection = getConnection();
-  connection.connect();
-
-  connection.query('DELETE from afspraken where startTijd = ?', afspraak, function (err, rows, fields) {
-    // console.log('deleted ' + afspraak);
-    res.status(200).end();
-  });
-
-  connection.end();
-});
-
+/*
+*
+*     Routing regelen
+*
+*/
 
 app.use(express.static("kalender/dist"));
 
