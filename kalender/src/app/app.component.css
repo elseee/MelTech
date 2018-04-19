@@ -1,5 +1,5 @@
 #myFooter {
-    background-color: #182c39;
+    background-color: #333;
     color: white;
     padding-top: 20px;
 }
@@ -16,7 +16,7 @@
 }
 
 #myFooter .footer-copyright {
-    background-color: #10222e;
+    background-color: #2d2d2d;
     padding-top: 3px;
     padding-bottom: 3px;
     text-align: center;
@@ -101,7 +101,7 @@
 #navigation-purple {
     padding-bottom: 0px;
     margin: 0;
-    background-color: #182c39;
+    background-color: #333;
     border: none;
     border-radius: 0;
 }
