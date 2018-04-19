@@ -470,8 +470,6 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__homepage_homepage_component__ = __webpack_require__("./src/app/homepage/homepage.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__over_ons_over_ons_component__ = __webpack_require__("./src/app/over-ons/over-ons.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__contact_contact_component__ = __webpack_require__("./src/app/contact/contact.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__header_header_component__ = __webpack_require__("./src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__footer_footer_component__ = __webpack_require__("./src/app/footer/footer.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1249,11 +1247,10 @@ module.exports = "h1, p{\n    text-align: center;\n}\n"
 /***/ "./src/app/over-ons/over-ons.component.html":
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<br>\n<br>\n\n<h1>Over ons</h1>\n<br>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n      <p>\n        Welkom op de website van Mel Tech. Bij Mel Tech kunt u terecht voor het aanschaffen of inruilen van tweedehands laptops,\n        computerhulp aan huis en reparatie van laptops. Mel Tech is een bedrijf gevestigd aan de Zandweg in Wormer. Omdat\n        Mel Tech een bedrijf aan huis is hebben wij geen showroom. Mocht u willen langskomen om naar een laptop te kijken,\n        uw laptop te verkopen of uw laptop te laten repareren, neem dan even contact met ons op.\n        <br> Vaak kunt u dezelfde dag nog langs komen!\n        <br>\n        <br> Elke laptop die wij verkopen is uitvoerig getest op gebreken en is voorzien van een legale Windows versie. Mocht\n        u na de aankoop van een tweedehands laptopproblemen ondervinden dan zullen wij zo snel mogelijk een gepaste oplossing\n        bieden.\n        <br>\n        <br> Mocht u verder nog vragen hebben over onze services dan kunt u altijd contact opnemen, telefonisch of per e-mail.\n      </p>\n    </div>\n    <div class=\"col-md-3\"></div>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/over-ons/over-ons.component.ts":
+=======
+module.exports = "<p>\n  over-ons works!\n</p>\n"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
