@@ -4,8 +4,8 @@
 }
 
 .header {
-	color: #fff;
-	background-color: #333;
+	color: #333;
+    background-color: #f4f4f4;
 	margin-bottom: 40px;
 	padding-top: 60px;
 	padding: 60px 0 80px;
@@ -31,7 +31,7 @@
 }
 
 .header a {
-	color: #fff;
+	color: #333;
     font-size: 25px;
     text-align: center;
 }

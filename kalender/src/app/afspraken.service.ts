@@ -32,11 +32,12 @@ export class AfsprakenService {
   }
 
   gegevens_doorsturen(gegevens) {
+    console.log(gegevens);
     return this.http.post('/formulier', gegevens);
   }
 
   tijden_ophalen(datum) {
-    console.log(datum);
+    // console.log(datum);
     return this.http.post<any[]>('/tijd', { datum: datum }, httpOptions);
   }
 }

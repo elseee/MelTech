@@ -61,6 +61,8 @@ app.post('/login', function (req, res) {
 
 });
 
+
+
 app.post('/add', function (req, res) {
   console.log('in /add');
   // console.log(req.body.startTijd);
@@ -76,6 +78,8 @@ app.post('/add', function (req, res) {
 
   connection.end();
 });
+
+
 
 app.get('/get', function (req, res) {
   console.log('in /get');
@@ -96,27 +100,7 @@ app.get('/get', function (req, res) {
   connection.end();
 });
 
-app.post('/delete', function (req, res) {
-  console.log('in /delete');
-  var afspraak = req.body.afspraak;
 
-  var connection = getConnection();
-  connection.connect();
-
-  connection.query('DELETE from afspraken where startTijd = ?', afspraak, function (err, rows, fields) {
-    // console.log('deleted ' + afspraak);
-    res.status(200).end();
-  });
-
-  connection.end();
-});
-
-
-app.use(express.static("kalender/dist"));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'kalender/dist/index.html'));
-});
 
 
 app.post('/formulier', function (req, res) {
@@ -131,8 +115,6 @@ app.post('/formulier', function (req, res) {
   var tel = req.body.telefoonnummer;
   var opmerkingen = req.body.opmerkingen;
   var probleem = req.body.probleem;
-
-  console.log(req.body.startTijd);
 
   console.log(probleem);
 
@@ -174,6 +156,9 @@ app.post('/formulier', function (req, res) {
 
 });
 
+
+
+
 app.post('/tijd', function (req, res) {
   console.log('in /tijd');
 
@@ -197,3 +182,30 @@ app.post('/tijd', function (req, res) {
 
   connection.end();
 });
+
+
+
+app.post('/delete', function (req, res) {
+  console.log('in /delete');
+  var afspraak = req.body.afspraak;
+
+  var connection = getConnection();
+  connection.connect();
+
+  connection.query('DELETE from afspraken where startTijd = ?', afspraak, function (err, rows, fields) {
+    // console.log('deleted ' + afspraak);
+    res.status(200).end();
+  });
+
+  connection.end();
+});
+
+
+app.use(express.static("kalender/dist"));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'kalender/dist/index.html'));
+});
+
+
+

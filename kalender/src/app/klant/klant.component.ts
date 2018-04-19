@@ -32,7 +32,8 @@ export class KlantComponent implements OnInit {
   }
 
   datum: string;
-
+  tijden;
+  error: string;
   onDateChanged(event: IMyDateModel) {
       this.datum = event.formatted.replace("/", "-").replace("/", "-");
       this.getTijden(this.datum);
@@ -42,38 +43,50 @@ export class KlantComponent implements OnInit {
     let self = this;
     let d: Date = new Date();
     let month = d.getMonth() + 1;
-    let datumVandaag = moment(d.getFullYear() + "-" + month + "-" + d.getDate(), "YYYY-MM-DD").format("YYYY-MM-DD");
+    this.datum = moment(d.getFullYear() + "-" + month + "-" + d.getDate(), "YYYY-MM-DD").format("YYYY-MM-DD");
     
-    self.getTijden(datumVandaag);
+    self.getTijden(this.datum);
   }
 
-  tijden;
+
+  naam: string;
+  mail: string;
+  tel: string;
+  opmerkingen: string;
+  
 
   ophalen_gegevens() {
-    var dag = $('.ui-datepicker-current-day').find("a").html();
 
-    var tijd = (<HTMLInputElement>document.querySelector('input[name="tijd"]:checked')).value;
-
-    // var datumgekozen = moment(jaar + "-" + maand + "-" + dag, "YYYY-MM-DD").format("YYYY-MM-DD");
+    var tijd = (<HTMLInputElement>document.querySelector('input[name="tijd"]:checked'));
+    var naam = this.naam;
+    var mail = this.mail;
+    var tel = this.tel;
+    var opmerkingen = this.opmerkingen;
     var datumgekozen = this.datum;
-    console.log(datumgekozen)
 
-    var startTijd = datumgekozen + "T" + tijd;
-    console.log(startTijd);
+    var startTijd = datumgekozen + "T" + tijd.value;
 
-    var gegevens = {
-      startTijd: startTijd,
-      naam: (<HTMLInputElement>document.getElementById('name')).value,
-      email: (<HTMLInputElement>document.getElementById('mail')).value,
-      telefoonnummer: (<HTMLInputElement>document.getElementById('telefoonnummer')).value,
-      probleem: (<HTMLInputElement>document.querySelector('input[name="reden"]:checked')).value,
-      opmerkingen: (<HTMLInputElement>document.getElementById('opmerkingen')).value
-    };
-    // console.log(gegevens);
+    if (naam && mail && tel && tijd ) {
+      var gegevens = {
+        startTijd: startTijd,
+        naam: naam,
+        email: mail,
+        telefoonnummer: tel,
+        probleem: (<HTMLInputElement>document.querySelector('input[name="reden"]:checked')).value,
+        opmerkingen: opmerkingen
+      };
 
-    this.afsprakenService.gegevens_doorsturen(gegevens).subscribe()
+      this.afsprakenService.gegevens_doorsturen(gegevens).subscribe(
+            (response) => { 
+              // console.log(response);
+              this.router.navigate(['/succes']);
+            });
 
-    this.router.navigate(['/succes']);    
+      console.log(gegevens);
+    }
+    else {
+      this.error = 'Voer alstublieft alle velden met een * in.';
+    }
   }
 
   getTijden(datum) {
