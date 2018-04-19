@@ -20,6 +20,8 @@ import { SuccesComponent } from './succes/succes.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { OverOnsComponent } from './over-ons/over-ons.component';
 import { ContactComponent } from './contact/contact.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -34,7 +36,9 @@ import { ContactComponent } from './contact/contact.component';
     SuccesComponent,
     HomepageComponent,
     OverOnsComponent,
-    ContactComponent
+    ContactComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

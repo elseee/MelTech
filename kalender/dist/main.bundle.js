@@ -356,6 +356,9 @@ var AfsprakenService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__my_my_component__ = __webpack_require__("./src/app/my/my-component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__klant_klant_component__ = __webpack_require__("./src/app/klant/klant.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__succes_succes_component__ = __webpack_require__("./src/app/succes/succes.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__homepage_homepage_component__ = __webpack_require__("./src/app/homepage/homepage.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_contact_component__ = __webpack_require__("./src/app/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__over_ons_over_ons_component__ = __webpack_require__("./src/app/over-ons/over-ons.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -368,12 +371,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var routes = [
-    { path: '', redirectTo: '/klant', pathMatch: 'full' },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'klant', component: __WEBPACK_IMPORTED_MODULE_4__klant_klant_component__["a" /* KlantComponent */] },
     { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_2__login_login_component__["a" /* LoginComponent */] },
     { path: 'kalender', component: __WEBPACK_IMPORTED_MODULE_3__my_my_component__["a" /* MyComponent */] },
-    { path: 'succes', component: __WEBPACK_IMPORTED_MODULE_5__succes_succes_component__["a" /* SuccesComponent */] }
+    { path: 'succes', component: __WEBPACK_IMPORTED_MODULE_5__succes_succes_component__["a" /* SuccesComponent */] },
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_6__homepage_homepage_component__["a" /* HomepageComponent */] },
+    { path: 'over_ons', component: __WEBPACK_IMPORTED_MODULE_8__over_ons_over_ons_component__["a" /* OverOnsComponent */] },
+    { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_7__contact_contact_component__["a" /* ContactComponent */] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -396,14 +405,14 @@ var AppRoutingModule = /** @class */ (function () {
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#myFooter {\n    background-color: #333;\n    color: white;\n    padding-top: 20px;\n}\n\n#map-container {\n    height: 240px;\n    width: 100%;\n    margin-top: 30px;\n    margin-bottom: 10px;\n}\n\n#myFooter .row {\n    margin: 0 85px;\n}\n\n#myFooter .footer-copyright {\n    background-color: #2d2d2d;\n    padding-top: 3px;\n    padding-bottom: 3px;\n    text-align: center;\n}\n\n#myFooter .footer-copyright p {\n    margin: 10px;\n    color: #ccc;\n}\n\n#myFooter .container {\n    width: auto;\n}\n\n#myFooter ul {\n    list-style-type: none;\n    padding-left: 0;\n    line-height: 1.7;\n}\n\n#myFooter h5 {\n    font-size: 18px;\n    color: white;\n    font-weight: bold;\n    margin-top: 30px;\n}\n\n#myFooter a {\n    color: #d2d1d1;\n    text-decoration: none;\n}\n\n#myFooter a:hover,\n#myFooter a:focus {\n    text-decoration: none;\n    color: white;\n}\n\n#myFooter .social-networks {\n    text-align: center;\n    padding-top: 30px;\n    padding-bottom: 38px;\n}\n\n#myFooter .fa {\n    font-size: 30px;\n    margin-right: 15px;\n    margin-left: 20px;\n    background-color: white;\n    color: #182c39;\n    border-radius: 51%;\n    padding: 10px;\n    height: 50px;\n    width: 50px;\n    text-align: center;\n    line-height: 31px;\n    text-decoration: none;\n    -webkit-transition: color 0.2s;\n    transition: color 0.2s;\n}\n\n#myFooter .fa-facebook:hover {\n    color: #207164;\n}\n\n#myFooter .fa-facebook {\n    font-size: 40px\n}\n\n#myFooter .fa-facebook:focus {\n    color: #207164;\n}\n\n@media screen and (max-width: 767px) {\n    #myFooter {\n        text-align: center;\n    }\n    #myFooter .row {\n        margin: 0;\n    }\n}\n\n#navigation-purple {\n    padding-bottom: 0px;\n    margin: 0;\n    background-color: #333;\n    border: none;\n    border-radius: 0;\n}\n\n#navigation-purple .nav {\n    margin-left: -15px;\n}\n\n#navigation-purple .nav > li {\n    border-bottom: 2px solid transparent;\n    margin-bottom: 34px;\n}\n\n#navigation-purple .nav > li:hover {\n    border-bottom-color: #fff;\n}\n\n#navigation-purple .nav > li:focus {\n    background-color: transparent;\n}\n\n#navigation-purple .nav > li > a {\n    font-size: 18px;\n    color: white;\n    font-family: 'Gudea';\n}\n\n#navigation-purple .nav > li > a:hover,\n#navigation-purple .nav > li > a:focus {\n    background-color: transparent;\n}\n\n#navigation-purple .navbar-collapse {\n    padding-top: 35px;\n}\n\n#navigation-purple .avatar {\n    height: 80px;\n    float: right;\n    margin-top: 19px;\n}\n\n#navigation-purple .icon-bar {\n    background-color: white;\n}\n\n#navigation-purple .navbar-toggle {\n    border-color: white;\n    float: left;\n    margin-left: 25px;\n    margin-top: 30px;\n}\n\n#navigation-purple .navbar-toggle:hover,\n#navigation-purple .navbar-toggle:focus {\n     background-color: transparent;\n}\n\n@media screen and (max-width: 767px) {\n\n    #navigation-purple .navbar-collapse {\n        padding-top: 0;\n    }\n\n    #navigation-purple ul>li {\n        float: left;\n        clear: left;\n        margin-left: 4px;\n        padding-bottom: 8px;\n        margin-bottom: 5px !important;\n    }\n\n    #navigation-purple ul>li>a {\n        padding-bottom: 2px;\n    }\n\n    #navigation-purple ul>li:hover {\n        border-bottom: 2px solid white;\n    }\n\n    #navigation-purple .avatar {\n        height: 60px;\n        margin-top: 18px;\n        margin-bottom: 18px;\n    }\n}\n"
+module.exports = ""
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\" id=\"navigation-purple\">\n    <div class=\"container\">\n        <a href=\"#\">\n            <img class=\"img-responsive avatar\" src=\"../assets/logo_met_naam.png\" alt=\"Logo_met_naam\">\n        </a>\n        <div class=\"navbar-header\">\n            <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n            </button>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n            <ul class=\"nav navbar-nav\">\n                <li>\n                    <a href=\"#\">Home</a>\n                </li>\n                <li>\n                    <a href=\"#\">Afspraak inplannen</a>\n                </li>\n                <li>\n                    <a href=\"#\">Over ons</a>\n                </li>\n                <li>\n                    <a href=\"#\">Contact</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n\n<router-outlet></router-outlet>\n\n<div class=\"content\">\n</div>\n<footer id=\"myFooter\">\n    <div class=\"social-networks\">\n        <a href=\"#\" class=\"facebook\">\n            <i class=\"fab fa-facebook\"></i>\n        </a>\n    </div>\n    <div class=\"footer-copyright\">\n        <p>© 2018 Mel Tech </p>\n    </div>\n</footer>"
+module.exports = "<app-header></app-header>\n<router-outlet></router-outlet>\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -458,12 +467,22 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__klant_klant_component__ = __webpack_require__("./src/app/klant/klant.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__maps_maps_component__ = __webpack_require__("./src/app/maps/maps.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__succes_succes_component__ = __webpack_require__("./src/app/succes/succes.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__homepage_homepage_component__ = __webpack_require__("./src/app/homepage/homepage.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__over_ons_over_ons_component__ = __webpack_require__("./src/app/over-ons/over-ons.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__contact_contact_component__ = __webpack_require__("./src/app/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__header_header_component__ = __webpack_require__("./src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__footer_footer_component__ = __webpack_require__("./src/app/footer/footer.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -490,7 +509,12 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_9__login_login_component__["a" /* LoginComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__klant_klant_component__["a" /* KlantComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__maps_maps_component__["a" /* MapsComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__succes_succes_component__["a" /* SuccesComponent */]
+                __WEBPACK_IMPORTED_MODULE_13__succes_succes_component__["a" /* SuccesComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__homepage_homepage_component__["a" /* HomepageComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__over_ons_over_ons_component__["a" /* OverOnsComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__contact_contact_component__["a" /* ContactComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__header_header_component__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__footer_footer_component__["a" /* FooterComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -506,6 +530,227 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/contact/contact.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "h1 {\n    text-align: center;\n}\n\niframe {\n    width: 80vw;\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n.midden{\n    text-align: center\n}\n\np {\n    font-size: 16px;\n}\n\n.titel {\n    font-size: 18px;\n}"
+
+/***/ }),
+
+/***/ "./src/app/contact/contact.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<br><h1>Contact</h1>\n<br>\n<h3>Gegevens</h3>\n<br>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 midden\">\n      <p>\n        <b class=\"titel\">Adres</b>\n        <br> Malerstraat 13\n        <br> 1531 NW Wormer\n        <br>\n      </p>\n    </div>\n    <div class=\"col-md-4 midden\">\n      <p>\n        <b class=\"titel\">Contact</b>\n        <br>0658897673\n        <br> info@mel-tech.nl\n        <br>\n      </p>\n    </div>\n    <div class=\"col-md-4 midden\">\n      <p>\n        <b class=\"titel\">Overig</b>\n        <br> KvK nummer: 67940544\n        <br> BTW nummer: NL205662080B01\n        <br>\n      </p>\n    </div>\n  </div>\n</div>\n\n<br>\n\n<h3>Locatie</h3>\n\n<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155487.6787069627!2d4.669822214664693!3d52.48827907980816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5fc42a8adbba9%3A0x4600d4ad0210bca9!2sMalerstraat+13%2C+1531+NW+Wormer!5e0!3m2!1sen!2snl!4v1524140448168\"\n height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>"
+
+/***/ }),
+
+/***/ "./src/app/contact/contact.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ContactComponent = /** @class */ (function () {
+    function ContactComponent() {
+    }
+    ContactComponent.prototype.ngOnInit = function () {
+    };
+    ContactComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-contact',
+            template: __webpack_require__("./src/app/contact/contact.component.html"),
+            styles: [__webpack_require__("./src/app/contact/contact.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ContactComponent);
+    return ContactComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/footer/footer.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "#myFooter {\n    background-color: #333;\n    color: white;\n    padding-top: 20px;\n}\n\n#myFooter .row {\n    margin: 0 85px;\n}\n\n#myFooter .footer-copyright {\n    background-color: #2d2d2d;\n    padding-top: 3px;\n    padding-bottom: 3px;\n    text-align: center;\n}\n\n#myFooter .footer-copyright p {\n    margin: 10px;\n    color: #ccc;\n}\n\n#myFooter .container {\n    width: auto;\n}\n\n#myFooter ul {\n    list-style-type: none;\n    padding-left: 0;\n    line-height: 1.7;\n}\n\n#myFooter h5 {\n    font-size: 18px;\n    color: white;\n    font-weight: bold;\n    margin-top: 30px;\n}\n\n#myFooter a {\n    color: #d2d1d1;\n    text-decoration: none;\n}\n\n#myFooter a:hover,\n#myFooter a:focus {\n    text-decoration: none;\n    color: white;\n}\n\n#myFooter .social-networks {\n    text-align: center;\n    padding-top: 30px;\n    padding-bottom: 38px;\n}\n\n#myFooter .fa {\n    font-size: 30px;\n    margin-right: 15px;\n    margin-left: 20px;\n    background-color: white;\n    color: #182c39;\n    border-radius: 51%;\n    padding: 10px;\n    height: 50px;\n    width: 50px;\n    text-align: center;\n    line-height: 31px;\n    text-decoration: none;\n    -webkit-transition: color 0.2s;\n    transition: color 0.2s;\n}\n\n#myFooter .fa-facebook:hover {\n    color: #207164;\n}\n\n#myFooter .fa-facebook {\n    font-size: 40px\n}\n\n#myFooter .fa-facebook:focus {\n    color: #207164;\n}\n\n@media screen and (max-width: 767px) {\n    #myFooter {\n        text-align: center;\n    }\n    #myFooter .row {\n        margin: 0;\n    }\n}\n"
+
+/***/ }),
+
+/***/ "./src/app/footer/footer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"content\">\n</div>\n<footer id=\"myFooter\">\n  <div class=\"social-networks\">\n    <a href=\"https://nl-nl.facebook.com/MelTechComputers/\" class=\"facebook\">\n      <i class=\"fab fa-facebook\"></i>\n    </a>\n  </div>\n  <div class=\"footer-copyright\">\n    <p>© 2018 Mel Tech </p>\n  </div>\n</footer>"
+
+/***/ }),
+
+/***/ "./src/app/footer/footer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FooterComponent = /** @class */ (function () {
+    function FooterComponent() {
+    }
+    FooterComponent.prototype.ngOnInit = function () {
+    };
+    FooterComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-footer',
+            template: __webpack_require__("./src/app/footer/footer.component.html"),
+            styles: [__webpack_require__("./src/app/footer/footer.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FooterComponent);
+    return FooterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "#navigation-purple {\n    padding-bottom: 0px;\n    margin: 0;\n    background-color: #333;\n    border: none;\n    border-radius: 0;\n}\n\n#navigation-purple .nav {\n    margin-left: -15px;\n}\n\n#navigation-purple .nav > li {\n    border-bottom: 2px solid transparent;\n    margin-bottom: 34px;\n}\n\n#navigation-purple .nav > li:hover {\n    border-bottom-color: #fff;\n}\n\n#navigation-purple .nav > li:focus {\n    background-color: transparent;\n}\n\n#navigation-purple .nav > li > a {\n    font-size: 18px;\n    color: white;\n    font-family: 'Gudea';\n}\n\n#navigation-purple .nav > li > a:hover,\n#navigation-purple .nav > li > a:focus {\n    background-color: transparent;\n}\n\n#navigation-purple .navbar-collapse {\n    padding-top: 35px;\n}\n\n#navigation-purple .avatar {\n    height: 80px;\n    float: right;\n    margin-top: 19px;\n}\n\n#navigation-purple .icon-bar {\n    background-color: white;\n}\n\n#navigation-purple .navbar-toggle {\n    border-color: white;\n    float: left;\n    margin-left: 25px;\n    margin-top: 30px;\n}\n\n#navigation-purple .navbar-toggle:hover,\n#navigation-purple .navbar-toggle:focus {\n     background-color: transparent;\n}\n\n@media screen and (max-width: 767px) {\n\n    #navigation-purple .navbar-collapse {\n        padding-top: 0;\n    }\n\n    #navigation-purple ul>li {\n        float: left;\n        clear: left;\n        margin-left: 4px;\n        padding-bottom: 8px;\n        margin-bottom: 5px !important;\n    }\n\n    #navigation-purple ul>li>a {\n        padding-bottom: 2px;\n    }\n\n    #navigation-purple ul>li:hover {\n        border-bottom: 2px solid white;\n    }\n\n    #navigation-purple .avatar {\n        height: 60px;\n        margin-top: 18px;\n        margin-bottom: 18px;\n    }\n}\n\n.link {\n    cursor: pointer;\n}"
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-default\" id=\"navigation-purple\">\n  <div class=\"container\">\n    <a href=\"#\">\n      <img class=\"img-responsive avatar\" src=\"../assets/logo_met_naam.png\" alt=\"Logo_met_naam\">\n    </a>\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n    </div>\n    <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n      <ul class=\"nav navbar-nav\">\n        <li>\n          <a (click)=homepage() class=\"link\">Home</a>\n        </li>\n        <li>\n          <a (click)=afspraak() class=\"link\">Afspraak inplannen</a>\n        </li>\n        <li>\n          <a (click)=contact() class=\"link\">Contact</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>"
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HeaderComponent = /** @class */ (function () {
+    function HeaderComponent(router) {
+        this.router = router;
+    }
+    HeaderComponent.prototype.ngOnInit = function () {
+    };
+    HeaderComponent.prototype.homepage = function () {
+        this.router.navigate(['/home']);
+    };
+    HeaderComponent.prototype.afspraak = function () {
+        this.router.navigate(['/klant']);
+    };
+    HeaderComponent.prototype.contact = function () {
+        this.router.navigate(['/contact']);
+    };
+    HeaderComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-header',
+            template: __webpack_require__("./src/app/header/header.component.html"),
+            styles: [__webpack_require__("./src/app/header/header.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+    ], HeaderComponent);
+    return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/homepage/homepage.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "h1 {\n    text-align: center;\n}\n\np {\n    text-align: left;\n}\n\nimg {\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n.link {\n    cursor: pointer;\n}"
+
+/***/ }),
+
+/***/ "./src/app/homepage/homepage.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<br>\n<h1>Welkom!</h1>\n<br>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n      <p>\n        Welkom op de website van Mel Tech. Bij Mel Tech kunt u terecht voor het aanschaffen of inruilen van tweedehands laptops,\n        computerhulp aan huis en reparatie van laptops. Mel Tech is een bedrijf gevestigd aan de Zandweg in Wormer. Omdat\n        Mel Tech een bedrijf aan huis is hebben wij geen showroom. Mocht u willen langskomen om naar een laptop te kijken,\n        uw laptop te verkopen of uw laptop te laten repareren, neem dan even contact met ons op.\n        <br> Vaak kunt u dezelfde dag nog langs komen!\n        <br>\n        <br> Elke laptop die wij verkopen is uitvoerig getest op gebreken en is voorzien van een legale Windows versie. Mocht\n        u na de aankoop van een tweedehands laptopproblemen ondervinden dan zullen wij zo snel mogelijk een gepaste oplossing\n        bieden.\n        <br>\n        <br> Mocht u verder nog vragen hebben over onze services dan kunt u altijd contact opnemen, telefonisch of per e-mail.\n      </p>\n      <br>\n    </div>\n    <div class=\"col-md-3\"></div>\n  </div>\n</div>\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4\">\n      <a href=\"https://www.marktplaats.nl/verkopers/4401745.html\">\n        <img src=\"../../assets/aanbod.jpg\" alt=\"aanbod\" height=\"150px\" class=\"link\">\n      </a>\n    </div>\n    <div class=\"col-md-4\">\n      <a (click)=afspraak()>\n        <img src=\"../../assets/afspraak.jpg\" alt=\"afspraak\" height=\"150px\" class=\"link\">\n      </a>\n    </div>\n    <div class=\"col-md-4\">\n      <a (click)=contact()>\n        <img src=\"../../assets/contact.jpg\" alt=\"contact\" height=\"150px\" class=\"link\">\n      </a>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/homepage/homepage.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomepageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HomepageComponent = /** @class */ (function () {
+    function HomepageComponent(router) {
+        this.router = router;
+    }
+    HomepageComponent.prototype.ngOnInit = function () {
+    };
+    HomepageComponent.prototype.contact = function () {
+        this.router.navigate(['/contact']);
+    };
+    HomepageComponent.prototype.afspraak = function () {
+        this.router.navigate(['/klant']);
+    };
+    HomepageComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-homepage',
+            template: __webpack_require__("./src/app/homepage/homepage.component.html"),
+            styles: [__webpack_require__("./src/app/homepage/homepage.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+    ], HomepageComponent);
+    return HomepageComponent;
 }());
 
 
@@ -729,7 +974,7 @@ var LoginComponent = /** @class */ (function () {
 /***/ "./src/app/maps/maps.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#map {\n        height: 400px;\n        width: 100%;\n       }\nh3{\n        text-align: center;\n        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;\n        }\n"
+module.exports = "#map {\n        height: 400px;\n        width: 100%;\n       }\nh3 {\n        text-align: center;\n        }\n"
 
 /***/ }),
 
@@ -994,6 +1239,56 @@ var MyComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/over-ons/over-ons.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "h1, p{\n    text-align: center;\n}\n"
+
+/***/ }),
+
+/***/ "./src/app/over-ons/over-ons.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<br>\n<br>\n\n<h1>Over ons</h1>\n<br>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n      <p>\n        Welkom op de website van Mel Tech. Bij Mel Tech kunt u terecht voor het aanschaffen of inruilen van tweedehands laptops,\n        computerhulp aan huis en reparatie van laptops. Mel Tech is een bedrijf gevestigd aan de Zandweg in Wormer. Omdat\n        Mel Tech een bedrijf aan huis is hebben wij geen showroom. Mocht u willen langskomen om naar een laptop te kijken,\n        uw laptop te verkopen of uw laptop te laten repareren, neem dan even contact met ons op.\n        <br> Vaak kunt u dezelfde dag nog langs komen!\n        <br>\n        <br> Elke laptop die wij verkopen is uitvoerig getest op gebreken en is voorzien van een legale Windows versie. Mocht\n        u na de aankoop van een tweedehands laptopproblemen ondervinden dan zullen wij zo snel mogelijk een gepaste oplossing\n        bieden.\n        <br>\n        <br> Mocht u verder nog vragen hebben over onze services dan kunt u altijd contact opnemen, telefonisch of per e-mail.\n      </p>\n    </div>\n    <div class=\"col-md-3\"></div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/over-ons/over-ons.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OverOnsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var OverOnsComponent = /** @class */ (function () {
+    function OverOnsComponent() {
+    }
+    OverOnsComponent.prototype.ngOnInit = function () {
+    };
+    OverOnsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-over-ons',
+            template: __webpack_require__("./src/app/over-ons/over-ons.component.html"),
+            styles: [__webpack_require__("./src/app/over-ons/over-ons.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], OverOnsComponent);
+    return OverOnsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/succes/succes.component.css":
 /***/ (function(module, exports) {
 
@@ -1014,6 +1309,7 @@ module.exports = "\n<div class=\"midden\">\n<i class=\"fas fa-calendar-check\" s
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuccesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1024,12 +1320,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var SuccesComponent = /** @class */ (function () {
-    function SuccesComponent() {
+    function SuccesComponent(router) {
+        this.router = router;
     }
     SuccesComponent.prototype.ngOnInit = function () {
     };
     SuccesComponent.prototype.homepage = function () {
+        this.router.navigate(['/home']);
     };
     SuccesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -1037,7 +1336,7 @@ var SuccesComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/succes/succes.component.html"),
             styles: [__webpack_require__("./src/app/succes/succes.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], SuccesComponent);
     return SuccesComponent;
 }());

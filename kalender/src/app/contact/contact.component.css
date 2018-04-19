@@ -1,0 +1,22 @@
+h1 {
+    text-align: center;
+}
+
+iframe {
+    width: 80vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.midden{
+    text-align: center
+}
+
+p {
+    font-size: 16px;
+}
+
+.titel {
+    font-size: 18px;
+}
